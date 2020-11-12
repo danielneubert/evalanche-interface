@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true" printerClass="Sempro\PHPUnitPrettyPrinter\PrettyPrinterForPhpUnit9">
+    <php>
+        <!-- <const name="EVALANCHE_HOST" value="scnem2.com"/> -->
+        <const name="EVALANCHE_USERNAME" value="username"/>
+        <const name="EVALANCHE_PASSWORD" value="password"/>
+        <const name="EVALANCHE_TEST_POOL" value="1234567890"/>
+        <const name="EVALANCHE_TEST_FOLDER" value="1234567890"/>
+    </php>
+    <testsuites>
+        <testsuite name="all">
+            <file>tests/EvalancheInterfaceTest.php</file>
+            <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
+            <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
+        </testsuite>
+        <testsuite name="connection">
+            <file>tests/EvalancheInterfaceTest.php</file>
+        </testsuite>
+        <testsuite name="article-type">
+            <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
+        </testsuite>
+        <testsuite name="container-type">
+            <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
+        </testsuite>
+    </testsuites>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./tests</directory>
+        </include>
+    </coverage>
+</phpunit>

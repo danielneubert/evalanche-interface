@@ -1,0 +1,43 @@
+{
+    "name": "neubert/evalanche-interface",
+    "description": "This interface is a consistent wrapper arround the SOAP API of Evalanche.",
+    "keywords": ["evalanche", "interface", "connector", "sc-networks", "scn"],
+    "license": "MIT",
+    "homepage": "https://github.com/danielneubert/evalanche-interface",
+    "support": {
+        "issues": "https://github.com/danielneubert/evalanche-interface/issues",
+        "source": "https://github.com/danielneubert/evalanche-interface"
+    },
+    "authors": [
+        {
+            "name": "Daniel Neubert",
+            "email": "git@danielneubert.com"
+        }
+    ],
+    "require": {
+        "scn/evalanche-soap-api-connector": "^1.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "sempro/phpunit-pretty-print": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Neubert\\EvalancheInterface\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Neubert\\EvalancheInterface\\Tests\\": "tests/"
+        },
+        "files": [
+            "tests/helpers.php"
+        ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --testsuite connection",
+        "test-at": "./vendor/bin/phpunit --testsuite article-type",
+        "test-ct": "./vendor/bin/phpunit --testsuite container-type",
+        "test-all": "./vendor/bin/phpunit --testsuite all"
+    }
+}
