@@ -10,16 +10,32 @@
     <testsuites>
         <testsuite name="all">
             <file>tests/EvalancheInterfaceTest.php</file>
+            <file>tests/Connectors/ArticleConnectorTest.php</file>
             <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
             <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
         </testsuite>
+
+        <!-- Connectors -->
         <testsuite name="connection">
             <file>tests/EvalancheInterfaceTest.php</file>
         </testsuite>
-        <testsuite name="article-type">
+        <testsuite name="connector--article">
+            <file>tests/Connectors/ArticleConnectorTest.php</file>
+        </testsuite>
+        <testsuite name="connector--article-type">
             <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
         </testsuite>
-        <testsuite name="container-type">
+        <testsuite name="connector--container-type">
+            <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
+        </testsuite>
+
+        <!-- Behaviors -->
+        <testsuite name="behaviors--attribute">
+            <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
+            <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
+        </testsuite>
+        <testsuite name="behaviors--attribute-group">
+            <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
             <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
         </testsuite>
     </testsuites>
