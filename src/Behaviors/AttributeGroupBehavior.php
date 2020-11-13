@@ -9,13 +9,13 @@ use Neubert\EvalancheInterface\Collections\Attributes\GroupCollection;
 
 /**
  * @method AttributeCollection getAttributes()
- * @method bool removeAttribute(int $attributeId)
+ * @method bool deleteAttribute(int $attributeId)
  * @see Neubert\EvalancheInterface\Behaviors\AttributeBehavior
  *
  * @method AttributeGroupCollection getGroups()
  * @method Attribute addAttribute(string $name, string $label, $type, int $groupId)
  * @method AttributeGroup addGroup(string $label)
- * @method bool removeGroup(int $groupId)
+ * @method bool deleteGroup(int $groupId)
  * @see Neubert\EvalancheInterface\Behaviors\AttributeGroupBehavior
  */
 trait AttributeGroupBehavior
@@ -44,7 +44,7 @@ trait AttributeGroupBehavior
     }
 
     // Documentation Missing
-    public function removeGroup(int $groupId) : bool
+    public function deleteGroup(int $groupId) : bool
     {
         return $this->getClient()->removeAttributeGroup($this->_id(), $groupId);
     }
