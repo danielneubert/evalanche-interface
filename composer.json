@@ -35,14 +35,15 @@
         ]
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --testsuite connection",
-        "test--all": "./vendor/bin/phpunit --testsuite all",
+        "test":       "./vendor/bin/phpunit --testsuite connection",
+        "test--all":  "./vendor/bin/phpunit --testsuite all",
 
-        "test--c-a": "./vendor/bin/phpunit --testsuite connector--article",
+        "test--c-a":  "./vendor/bin/phpunit --testsuite connector--article",
         "test--c-at": "./vendor/bin/phpunit --testsuite connector--article-type",
         "test--c-ct": "./vendor/bin/phpunit --testsuite connector--container-type",
+        "test--c-f":  "./vendor/bin/phpunit --testsuite connector--folder",
 
-        "test--b-a": "./vendor/bin/phpunit --testsuite behaviors--attribute",
+        "test--b-a":  "./vendor/bin/phpunit --testsuite behaviors--attribute",
         "test--b-ag": "./vendor/bin/phpunit --testsuite behaviors--attribute-group"
     }
 }

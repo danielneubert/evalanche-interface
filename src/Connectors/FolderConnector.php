@@ -59,6 +59,18 @@ class FolderConnector extends Connector
     }
 
     // Documentation Missing
+    public function moveTo(int $folderId) : Resource
+    {
+        trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::moveTo()", E_USER_ERROR);
+    }
+
+    // Documentation Missing
+    public function copyTo(int $folderId) : Resource
+    {
+        trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::copyTo()", E_USER_ERROR);
+    }
+
+    // Documentation Missing
     public function delete()
     {
         // support for inconsitent Folder API (doesn't return a bool)

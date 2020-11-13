@@ -27,6 +27,18 @@ trait ResourceBehavior
     }
 
     // Documentation Missing
+    public function moveTo(int $folderId) : Resource
+    {
+        return new Resource($this->getClient()->move($this->_id(), $folderId), $this->_name(), $this);
+    }
+
+    // Documentation Missing
+    public function copyTo(int $folderId) : Resource
+    {
+        return new Resource($this->getClient()->copy($this->_id(), $folderId), $this->_name(), $this);
+    }
+
+    // Documentation Missing
     public function delete() : bool
     {
         return $this->getClient()->delete($this->_id());

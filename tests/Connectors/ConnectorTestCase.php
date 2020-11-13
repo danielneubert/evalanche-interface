@@ -40,7 +40,13 @@ class ConnectorTestCase extends TestCase
      */
     protected function createResource()
     {
-        $resource = call_user_func_array([$this->getClient(getPhpUnitValue('EVALANCHE_TEST_FOLDER'), 'Folder'), "create{$this->clientAccessor}"], func_get_args());
+        $resource = call_user_func_array(
+            [
+                $this->getClient(getPhpUnitValue('EVALANCHE_TEST_FOLDER'), 'Folder'),
+                "create{$this->clientAccessor}"
+            ],
+            func_get_args()
+        );
         $this->assertInstanceOf(Resource::class, $resource);
         return $resource;
     }

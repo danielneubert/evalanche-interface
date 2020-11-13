@@ -93,7 +93,7 @@ class CollectionItem implements JsonSerializable
      */
     public function __debugInfo()
     {
-        return $this->item;
+        return (array) $this->item;
     }
 
     /**
