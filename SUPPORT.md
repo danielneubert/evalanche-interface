@@ -78,8 +78,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**addAttributeGroup()**                       |`articleType()->addGroup()`
 |✅|**getAttributeGroups()**                      |`articleType()->getGroups()`
 |✅|**removeAttributeGroup()**                    |`articleType()->removeGroup()`
-|✅|**copy()**                                    |`article()->copyTo()`
-|✅|**move()**                                    |`article()->moveTo()`
+|✅|**copy()**                                    |`articleType()->copyTo()`
+|✅|**move()**                                    |`articleType()->moveTo()`
 |🔜|**createAttributeOption()**                   |*Planned*
 |🔜|**getAttributeOptions()**                     |*Planned*
 |🔜|**removeAttributeOption()**                   |*Planned*
@@ -110,8 +110,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**addAttributeGroup()**                       |`containerType()->addGroup()`
 |✅|**getAttributeGroupsByResourceId()**          |`containerType()->getGroups()`
 |✅|**removeAttributeGroup()**                    |`containerType()->removeGroup()`
-|✅|**copy()**                                    |`article()->copyTo()`
-|✅|**move()**                                    |`article()->moveTo()`
+|✅|**copy()**                                    |`containerType()->copyTo()`
+|✅|**move()**                                    |`containerType()->moveTo()`
 |🔜|**addAttributeOption()**                      |*Planned*
 |🔜|**getAttributeOptionsByResourceIdAndAttributeId()**|*Planned*
 |🔜|**removeAttributeOption()**                   |*Planned*
