@@ -12,9 +12,9 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 
 ## Client Overview
 
-- ✅ [**Article**](#article)
-- ✅ [**ArticleType**](#articletype)
-- ✅ [**ContainerType**](#client-overview)
+- 🔜 [**Article**](#article)
+- 🔜 [**ArticleType**](#articletype)
+- 🔜 [**ContainerType**](#client-overview)
 - ✅ [**Folder**](#client-overview)
 - 🔜  **ArticleTemplate**
 - 🔜  **Container**
@@ -148,10 +148,10 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**getById()**                                 |`pool()->moveTo()`
 |✅|**move()**                                    |`pool()->delete()`
 |✅|**addAttribute()**                            |`pool()->addAttribute()`
-|🔜|**addAttributeOption()**                      |*Planned*
 |✅|**deleteAttribute()**                         |`pool()->deleteAttribute()`
-|🔜|**deleteAttributeOption()**                   |*Planned*
 |✅|**getAttributesByPool()**                     |`pool()->getAttributes()`
+|🔜|**addAttributeOption()**                      |*Planned*
+|🔜|**deleteAttributeOption()**                   |*Planned*
 |🔜|**updateAttributeOption()**                   |*Planned*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getByExternalId()~~**                     |*Not supported*
