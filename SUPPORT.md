@@ -147,11 +147,11 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**getByFolderId()**                           |`folder()->getPools()`
 |✅|**getById()**                                 |`pool()->moveTo()`
 |✅|**move()**                                    |`pool()->delete()`
-|🔜|**addAttribute()**                            |*Planned*
+|🔜|**addAttribute()**                            |`pool()->addAttribute()`
 |🔜|**addAttributeOption()**                      |*Planned*
-|🔜|**deleteAttribute()**                         |*Planned*
+|🔜|**deleteAttribute()**                         |`pool()->deleteAttribute()`
 |🔜|**deleteAttributeOption()**                   |*Planned*
-|🔜|**getAttributesByPool()**                     |*Planned*
+|🔜|**getAttributesByPool()**                     |`pool()->getAttributes()`
 |🔜|**updateAttributeOption()**                   |*Planned*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getByExternalId()~~**                     |*Not supported*
