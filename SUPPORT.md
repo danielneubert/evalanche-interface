@@ -51,8 +51,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**getByFolderId()**                     |`folder()->getArticles()`
 |✅|**getById()**                           |`article()->get()`
 |✅|**delete()**                            |`article()->delete()`
-|🔜|**copy()**                              |*Planned*
-|🔜|**move()**                              |*Planned*
+|✅|**copy()**                              |`article()->copyTo()`
+|✅|**move()**                              |`article()->moveTo()`
 |🔜|**getDetailById()**                     |*Planned*
 |🔜|**update()**                            |*Planned*
 |❌|**~~getListByMandatorId()~~**           |*Not supported*
@@ -78,8 +78,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**addAttributeGroup()**                       |`articleType()->addGroup()`
 |✅|**getAttributeGroups()**                      |`articleType()->getGroups()`
 |✅|**removeAttributeGroup()**                    |`articleType()->removeGroup()`
-|🔜|**copy()**                                    |*Planned*
-|🔜|**move()**                                    |*Planned*
+|✅|**copy()**                                    |`article()->copyTo()`
+|✅|**move()**                                    |`article()->moveTo()`
 |🔜|**createAttributeOption()**                   |*Planned*
 |🔜|**getAttributeOptions()**                     |*Planned*
 |🔜|**removeAttributeOption()**                   |*Planned*
@@ -110,8 +110,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**addAttributeGroup()**                       |`containerType()->addGroup()`
 |✅|**getAttributeGroupsByResourceId()**          |`containerType()->getGroups()`
 |✅|**removeAttributeGroup()**                    |`containerType()->removeGroup()`
-|🔜|**copy()**                                    |*Planned*
-|🔜|**move()**                                    |*Planned*
+|✅|**copy()**                                    |`article()->copyTo()`
+|✅|**move()**                                    |`article()->moveTo()`
 |🔜|**addAttributeOption()**                      |*Planned*
 |🔜|**getAttributeOptionsByResourceIdAndAttributeId()**|*Planned*
 |🔜|**removeAttributeOption()**                   |*Planned*
