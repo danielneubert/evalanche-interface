@@ -8,7 +8,7 @@ use Neubert\EvalancheInterface\Collections\Attributes\AttributeCollection;
 /**
  * @method AttributeCollection getAttributes()
  * @method Attribute addAttribute(string $name, string $label, $type)
- * @method bool removeAttribute(int $attributeId)
+ * @method bool deleteAttribute(int $attributeId)
  * @see Neubert\EvalancheInterface\Behaviors\AttributeBehavior
  */
 trait AttributeBehavior
@@ -36,7 +36,7 @@ trait AttributeBehavior
     }
 
     // Documentation Missing
-    public function removeAttribute(int $attributeId) : bool
+    public function deleteAttribute(int $attributeId) : bool
     {
         return $this->getClient()->removeAttribute($this->_id(), $attributeId);
     }

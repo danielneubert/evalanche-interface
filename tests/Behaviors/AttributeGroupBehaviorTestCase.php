@@ -57,14 +57,14 @@ trait AttributeGroupBehaviorTestCase
         $this->assertNotNull($group);
     }
 
-    public function testAttributeGroupRemoveAttribute()
+    public function testAttributeGroupDeleteAttribute()
     {
-        $this->assertTrue($this->getClientWith('attr--id')->removeAttribute($this->get('attr--attribute-id')));
+        $this->assertTrue($this->getClientWith('attr--id')->deleteAttribute($this->get('attr--attribute-id')));
     }
 
-    public function testAttributeGroupRemoveGroup()
+    public function testAttributeGroupDeleteGroup()
     {
-        $this->assertTrue($this->getClientWith('attr--id')->removeGroup($this->get('attr--group-id')));
+        $this->assertTrue($this->getClientWith('attr--id')->deleteGroup($this->get('attr--group-id')));
     }
 
     public function testAttributeGroupSetupDelete()
