@@ -2,11 +2,16 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
-use Neubert\EvalancheInterface\Behaviors\FolderBehavior;
+use Neubert\EvalancheInterface\Behaviors\AttributeBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
 use Neubert\EvalancheInterface\Collections\Resources\Resource;
 
 /**
+ * @method AttributeCollection getAttributes()
+ * @method Attribute addAttribute(string $name, string $label, $type)
+ * @method bool removeAttribute(int $attributeId)
+ * @see Neubert\EvalancheInterface\Behaviors\AttributeBehavior#
+ *
  * @method Resource copyTo()
  * @method bool delete()
  * @method Resource get()
@@ -16,7 +21,7 @@ use Neubert\EvalancheInterface\Collections\Resources\Resource;
  */
 class PoolConnector extends Connector
 {
-    use ResourceBehavior;
+    use AttributeBehavior, ResourceBehavior;
 
     /**
      * Client Accessor
