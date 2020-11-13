@@ -74,10 +74,10 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**delete()**                                  |`articleType()->delete()`
 |✅|**addAttribute()**                            |`articleType()->addAttribute()`
 |✅|**getAttributes()**                           |`articleType()->getAttributes()`
-|✅|**removeAttribute()**                         |`articleType()->removeAttribute()`
+|✅|**removeAttribute()**                         |`articleType()->deleteAttribute()`
 |✅|**addAttributeGroup()**                       |`articleType()->addGroup()`
 |✅|**getAttributeGroups()**                      |`articleType()->getGroups()`
-|✅|**removeAttributeGroup()**                    |`articleType()->removeGroup()`
+|✅|**removeAttributeGroup()**                    |`articleType()->deleteGroup()`
 |✅|**copy()**                                    |`articleType()->copyTo()`
 |✅|**move()**                                    |`articleType()->moveTo()`
 |🔜|**createAttributeOption()**                   |*Planned*
@@ -106,10 +106,10 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**delete()**                                  |`containerType()->delete()`
 |✅|**addAttribute()**                            |`containerType()->addAttribute()`
 |✅|**getAttributesByResourceId()**               |`containerType()->getAttributes()`
-|✅|**removeAttribute()**                         |`containerType()->removeAttribute()`
+|✅|**removeAttribute()**                         |`containerType()->deleteAttribute()`
 |✅|**addAttributeGroup()**                       |`containerType()->addGroup()`
 |✅|**getAttributeGroupsByResourceId()**          |`containerType()->getGroups()`
-|✅|**removeAttributeGroup()**                    |`containerType()->removeGroup()`
+|✅|**removeAttributeGroup()**                    |`containerType()->deleteGroup()`
 |✅|**copy()**                                    |`containerType()->copyTo()`
 |✅|**move()**                                    |`containerType()->moveTo()`
 |🔜|**addAttributeOption()**                      |*Planned*
