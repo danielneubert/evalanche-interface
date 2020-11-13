@@ -7,11 +7,11 @@ use Neubert\EvalancheInterface\EvalancheInterface;
 class Connector
 {
     private $meta = null;
-    private $connector = null;
+    private $interface = null;
 
-    public function __construct(EvalancheInterface $connector)
+    public function __construct(EvalancheInterface $interface)
     {
-        $this->connector = $connector;
+        $this->interface = $interface;
     }
 
     public function setMeta(array $meta)
@@ -39,14 +39,14 @@ class Connector
     public function getClient(? string $name = null)
     {
         return is_null($name)
-            ? $this->connector->getClient($this->clientAccessor)
-            : $this->connector->getClient($name);
+            ? $this->interface->getClient($this->clientAccessor)
+            : $this->interface->getClient($name);
     }
 
     public function getConnector(? string $name = null, array $meta = EvalancheConnector::CONNECTOR_DEFAULT)
     {
         return is_null($name)
-            ? $this->connector->getConnector($this->clientAccessor, $meta)
-            : $this->connector->getConnector($name, $meta);
+            ? $this->interface->getConnector($this->clientAccessor, $meta)
+            : $this->interface->getConnector($name, $meta);
     }
 }
