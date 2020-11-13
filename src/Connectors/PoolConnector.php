@@ -88,4 +88,22 @@ class PoolConnector extends Connector
             ), $this->_interface());
         }
     }
+
+    // Documentation Missing
+    public function updateProfiles(array $values) : bool
+    {
+        if (!is_null($this->conditional->key)) {
+            return $this->getClient('Profile')->updateByKey(
+                $this->_id(),
+                $this->conditional->key,
+                $this->conditional->value,
+                HashMap::compose($values),
+            );
+        } else {
+            return $this->getClient('Profile')->updateByPool(
+                $this->_id(),
+                HashMap::compose($values),
+            );
+        }
+    }
 }
