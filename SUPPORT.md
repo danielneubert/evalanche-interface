@@ -136,3 +136,72 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**get()**                                     |`folder()->get()`
 
 [↑ **Get back to the client overview**](#client-overview)
+
+
+## Pool
+
+|Status|Method|Details|
+|:-:|-|-|
+|✅|**copy()**                                    |`pool()->copyTo()`
+|✅|**delete()**                                  |`pool()->get()`
+|✅|**getByFolderId()**                           |`folder()->getPools()`
+|✅|**getById()**                                 |`pool()->moveTo()`
+|✅|**move()**                                    |`pool()->delete()`
+|🔜|**addAttribute()**                            |*Planned*
+|🔜|**addAttributeOption()**                      |*Planned*
+|🔜|**deleteAttribute()**                         |*Planned*
+|🔜|**deleteAttributeOption()**                   |*Planned*
+|🔜|**getAttributesByPool()**                     |*Planned*
+|🔜|**updateAttributeOption()**                   |*Planned*
+|❌|**~~getListByMandatorId()~~**                 |*Not supported*
+|❌|**~~getByExternalId()~~**                     |*Not supported*
+|❌|**~~getByTypeId()~~**                         |*Not supported*
+|❌|**~~getDefaultFolderByMandatorId()~~**        |*Not supported*
+|❌|**~~getTypeIds()~~**                          |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## Profile
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**create()**                                  |*Planned*
+|🔜|**delete()**                                  |*Planned*
+|🔜|**getBounces()**                              |*Planned*
+|🔜|**getById()**                                 |*Planned*
+|🔜|**getByKey()**                                |*Planned*
+|🔜|**getByPool()**                               |*Planned*
+|🔜|**getByTargetGroup()**                        |*Planned*
+|🔜|**getGrantedPermissions()**                   |*Planned*
+|🔜|**getJobInformationByJobId()**                |*Planned*
+|🔜|**getMailingStatus()**                        |*Planned*
+|🔜|**getModifiedProfiles()**                     |*Planned*
+|🔜|**getResultCursorByJobId()**                  |*Planned*
+|🔜|**getResultByJobId()**                        |*Planned*
+|🔜|**getTrackingHistory()**                      |*Planned*
+|🔜|**getUnsubscriptions()**                      |*Planned*
+|🔜|**grantPermission()**                         |*Planned*
+|🔜|**isInTargetgroups()**                        |*Planned*
+|🔜|**massUpdate()**                              |*Planned*
+|🔜|**revokePermission()**                        |*Planned*
+|🔜|**revokeTracking()**                          |*Planned*
+|🔜|**setResultCursor()**                         |*Planned*
+|🔜|**updateById()**                              |*Planned*
+|🔜|**updateByKey()**                             |*Planned*
+|🔜|**updateByPool()**                            |*Planned*
+|🔜|**updateByTargetGroup()**                     |*Planned*
+|❌|**~~addScore()~~**                            |*Not supported*
+|❌|**~~getActivityScoringHistory()~~**           |*Not supported*
+|❌|**~~getByMilestone()~~**                      |*Not supported*
+|❌|**~~getScoresByProfileId()~~**                |*Not supported*
+|❌|**~~hasMilestone()~~**                        |*Not supported*
+|❌|**~~mergeById()~~**                           |*Not supported*
+|❌|**~~mergeByKey()~~**                          |*Not supported*
+|❌|**~~mergeByPoolId()~~**                       |*Not supported*
+|❌|**~~mergeByTargetGroupId()~~**                |*Not supported*
+|❌|**~~setMilestone()~~**                        |*Not supported*
+|❌|**~~tagWithOption()~~**                       |*Not supported*
+|❌|**~~untagWithOption()~~**                     |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
