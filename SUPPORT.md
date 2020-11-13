@@ -16,15 +16,15 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 - ✅ [**ArticleType**](#articletype)
 - ✅ [**ContainerType**](#client-overview)
 - ✅ [**Folder**](#client-overview)
-- 🔜 [**ArticleTemplate**](#client-overview)
-- 🔜 [**Container**](#client-overview)
-- 🔜 [**Document**](#client-overview)
-- 🔜 [**Image**](#client-overview)
-- 🔜 [**Mailing**](#client-overview)
-- 🔜 [**MailingTemplate**](#client-overview)
-- 🔜 [**Pool**](#client-overview)
-- 🔜 [**Profile**](#client-overview)
-- 🔜 [**Targetgroup**](#client-overview)
+- 🔜  **ArticleTemplate**
+- 🔜  **Container**
+- 🔜  **Document**
+- 🔜  **Image**
+- 🔜  **Mailing**
+- 🔜  **MailingTemplate**
+- 🔜 [**Pool**](#pool)
+- 🔜 [**Profile**](#profile)
+- 🔜  **Targetgroup**
 - ❌ **~~Account~~** - *Not supported*
 - ❌ **~~Blacklist~~** - *Not supported*
 - ❌ **~~CouponList~~** - *Not supported*
