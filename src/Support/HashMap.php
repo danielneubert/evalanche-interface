@@ -8,7 +8,7 @@ use \Scn\EvalancheSoapStruct\Struct\Generic\HashMapItem;
 class HashMap
 {
     // Documentation Missing
-    public static function parse(array $values)
+    public static function compose(array $values)
     {
         $hashMap = [];
 
@@ -23,5 +23,23 @@ class HashMap
         }
 
         return new HashMapArray($hashMap);
+    }
+
+    // Documentation Missing
+    public static function decompose($input)
+    {
+        if (is_array($input)) {
+            return array_map(function ($single) {
+                return static::convert($single);
+            }, $input);
+        }
+
+        $items = [];
+
+        foreach (($input->getItems() ?? []) as $item) {
+            $items[$item->getKey()] = $item->getValue();
+        }
+
+        return $items;
     }
 }
