@@ -8,6 +8,7 @@ use \Neubert\EvalancheInterface\Connectors\ArticleConnector;
 use \Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
 use \Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
 use \Neubert\EvalancheInterface\Connectors\FolderConnector;
+use \Neubert\EvalancheInterface\Connectors\PoolConnector;
 
 /**
  * @var const CONNECTOR_DEFAULT
@@ -17,6 +18,7 @@ use \Neubert\EvalancheInterface\Connectors\FolderConnector;
  * @method ArticleTypeConnector articleType(int $reference)
  * @method ContainerTypeConnector containerType(int $reference)
  * @method FolderConnector folder(? int $reference = null)
+ * @method PoolConnector pool(? int $reference = null)
  *
  * @method void setDefault($keyOrArray, ? int $value = null)
  *
@@ -36,6 +38,7 @@ class EvalancheInterface
         'ArticleType'       => ArticleTypeConnector::class,
         'ContainerType'     => ContainerTypeConnector::class,
         'Folder'            => FolderConnector::class,
+        'Pool'              => PoolConnector::class,
     ];
 
     /**
@@ -110,6 +113,19 @@ class EvalancheInterface
     {
         return $this->getConnector('Folder', self::newMeta([
             'id' => $reference ?? ($this->defaults['folder'] ?? null),
+        ]));
+    }
+
+    /**
+     * Provides the PoolConnector
+     *
+     * @param  integer  $reference
+     * @return PoolConnector
+     */
+    public function pool(? int $reference = null) : PoolConnector
+    {
+        return $this->getConnector('Pool', self::newMeta([
+            'id' => $reference ?? ($this->defaults['pool'] ?? null),
         ]));
     }
 

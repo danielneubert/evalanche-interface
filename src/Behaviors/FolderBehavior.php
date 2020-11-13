@@ -33,6 +33,7 @@ use Scn\EvalancheSoapStruct\Struct\Generic\HashMap;
  * @method ResourceCollection getImages()
  * @method ResourceCollection getMailings()
  * @method ResourceCollection getMailingTemplates()
+ * @method ResourceCollection getPools()
  * @method ResourceCollection getSmartlinks()
  * @method ResourceCollection getTargetGroups()
  * @see Neubert\EvalancheInterface\Behaviors\FolderBehavior
@@ -63,20 +64,17 @@ trait FolderBehavior
         return new Resource($this->getClient('ArticleType')->create($name, $this->_id()), 'ArticleType', $this);
     }
 
-
     // Documentation Missing
     // public function createContainer()
     // {
     //     return null;
     // }
 
-
     // Documentation Missing
     public function createContainerType(string $name)
     {
         return new Resource($this->getClient('ContainerType')->create($name, $this->_id()), 'ContainerType', $this);
     }
-
 
     // Documentation Missing
     // public function createCouponList()
@@ -91,13 +89,11 @@ trait FolderBehavior
     //     return null;
     // }
 
-
     // Documentation Missing
     public function createFolder(string $name)
     {
         return new Resource($this->getClient('Folder')->create($name, $this->_id()), 'Folder', $this);
     }
-
 
     // Documentation Missing
     // public function createForm()
@@ -105,13 +101,11 @@ trait FolderBehavior
     //     return null;
     // }
 
-
     // Documentation Missing
     // public function createImage()
     // {
     //     return null;
     // }
-
 
     // Documentation Missing
     // public function createMailing()
@@ -119,20 +113,17 @@ trait FolderBehavior
     //     return null;
     // }
 
-
     // Documentation Missing
     // public function createMailingTemplate()
     // {
     //     return null;
     // }
 
-
     // Documentation Missing
     // public function createSmartlink()
     // {
     //     return null;
     // }
-
 
     // Documentation Missing
     // public function createTargetGroup()
@@ -153,13 +144,11 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('Article')->getByFolderId($this->_id()), 'Article', $this);
     }
 
-
     // Documentation Missing
     public function getArticleTemplates() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('ArticleTemplate')->getByFolderId($this->_id()), 'ArticleTemplate', $this);
     }
-
 
     // Documentation Missing
     public function getArticleTypes() : ResourceCollection
@@ -167,13 +156,11 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('ArticleType')->getByFolderId($this->_id()), 'ArticleType', $this);
     }
 
-
     // Documentation Missing
     public function getContainers() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('Container')->getByFolderId($this->_id()), 'Container', $this);
     }
-
 
     // Documentation Missing
     public function getContainerTypes() : ResourceCollection
@@ -181,13 +168,11 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('ContainerType')->getByFolderId($this->_id()), 'ContainerType', $this);
     }
 
-
     // Documentation Missing
     public function getCouponLists() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('CouponList')->getByFolderId($this->_id()), 'CouponList', $this);
     }
-
 
     // Documentation Missing
     public function getDocuments() : ResourceCollection
@@ -195,13 +180,11 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('Document')->getByFolderId($this->_id()), 'Document', $this);
     }
 
-
     // Documentation Missing
     public function getFolders() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('Folder')->getSubFolderById($this->_id()), 'Folder', $this);
     }
-
 
     // Documentation Missing
     public function getForms() : ResourceCollection
@@ -209,13 +192,11 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('Form')->getByFolderId($this->_id()), 'Form', $this);
     }
 
-
     // Documentation Missing
     public function getImages() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('Image')->getByFolderId($this->_id()), 'Image', $this);
     }
-
 
     // Documentation Missing
     public function getMailings() : ResourceCollection
@@ -223,20 +204,23 @@ trait FolderBehavior
         return new ResourceCollection($this->getClient('Mailing')->getByFolderId($this->_id()), 'Mailing', $this);
     }
 
-
     // Documentation Missing
     public function getMailingTemplates() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('MailingTemplate')->getByFolderId($this->_id()), 'MailingTemplate', $this);
     }
 
+    // Documentation Missing
+    public function getPools() : ResourceCollection
+    {
+        return new ResourceCollection($this->getClient('Pool')->getByFolderId($this->_id()), 'Pool', $this);
+    }
 
     // Documentation Missing
     public function getSmartlinks() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('Smartlink')->getByFolderId($this->_id()), 'Smartlink', $this);
     }
-
 
     // Documentation Missing
     public function getTargetGroups() : ResourceCollection
