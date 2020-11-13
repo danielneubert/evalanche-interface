@@ -2,9 +2,12 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
+use Neubert\EvalancheInterface\EvalancheInterface;
 use Neubert\EvalancheInterface\Behaviors\AttributeBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
-use Neubert\EvalancheInterface\Collections\Resources\Resource;
+use Neubert\EvalancheInterface\Collections\Profiles\Profile;
+use Neubert\EvalancheInterface\Collections\Profiles\ProfileCollection;
+use Neubert\EvalancheInterface\Support\ProfileJobHandler;
 
 /**
  * @method AttributeCollection getAttributes()
@@ -29,4 +32,60 @@ class PoolConnector extends Connector
      * @var string
      */
     protected $clientAccessor = 'Pool';
+
+    /**
+     * The arguments for requesting specific profiles.
+     *
+     * @var array
+     */
+    protected $conditional = null;
+
+    /**
+     * Extend default constructor.
+     *
+     * @param EvalancheInterface $interface
+     */
+    public function __construct(EvalancheInterface $interface)
+    {
+        parent::__construct($interface);
+        $this->conditional = (object) [
+            'key' => null,
+            'value' => null,
+        ];
+    }
+
+    // Documentation Missing
+    public function where(string $key, $value) : PoolConnector
+    {
+        $this->conditional->key = strtoupper($key);
+        $this->conditional->value = $value;
+        return $this;
+    }
+
+    // Documentation Missing
+    public function getProfiles(array $attributeNames)
+    {
+        $attributeNames = array_map(function ($name) {
+            return strtoupper($name);
+        }, $attributeNames);
+
+        // always fetch the profile ID for chainability
+        if (!in_array('PROFILEID', $attributeNames)) {
+            $attributeNames[] = 'PROFILEID';
+        }
+
+        if (!is_null($this->conditional->key)) {
+            return new ProfileCollection($this->getClient('Profile')->getByKey(
+                $this->_id(),
+                $this->conditional->key,
+                $this->conditional->value,
+                $attributeNames,
+            ), 'Profile', $this);
+        } else {
+            return new ProfileJobHandler($this->getClient('Profile')->getByPool(
+                $this->_id(),
+                $attributeNames,
+            ), $this->_interface());
+        }
+    }
 }

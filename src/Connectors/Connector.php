@@ -36,6 +36,11 @@ class Connector
         return $this->meta['folder'];
     }
 
+    protected function _interface()
+    {
+        return $this->interface;
+    }
+
     public function getClient(? string $name = null)
     {
         return is_null($name)

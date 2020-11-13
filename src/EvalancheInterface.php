@@ -4,11 +4,13 @@ namespace Neubert\EvalancheInterface;
 
 use Scn\EvalancheSoapApiConnector\EvalancheConnection;
 
-use \Neubert\EvalancheInterface\Connectors\ArticleConnector;
-use \Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
-use \Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
-use \Neubert\EvalancheInterface\Connectors\FolderConnector;
-use \Neubert\EvalancheInterface\Connectors\PoolConnector;
+use Neubert\EvalancheInterface\Connectors\ArticleConnector;
+use Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
+use Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
+use Neubert\EvalancheInterface\Connectors\FolderConnector;
+use Neubert\EvalancheInterface\Connectors\PoolConnector;
+use Neubert\EvalancheInterface\Connectors\ProfileConnector;
+use Neubert\EvalancheInterface\Support\ProfileJobHandler;
 
 /**
  * @var const CONNECTOR_DEFAULT
@@ -39,6 +41,7 @@ class EvalancheInterface
         'ContainerType'     => ContainerTypeConnector::class,
         'Folder'            => FolderConnector::class,
         'Pool'              => PoolConnector::class,
+        'Profile'           => ProfileConnector::class,
     ];
 
     /**
@@ -134,6 +137,17 @@ class EvalancheInterface
      * Callable Methods
      * ------------------------------------------------------------
      */
+
+    /**
+     * Provides the ProfileJobHandler
+     *
+     * @param  string  $reference
+     * @return ProfileJobHandler
+     */
+    public function job(string $reference) : ProfileJobHandler
+    {
+        return new ProfileJobHandler($reference, $this);
+    }
 
     /**
      * Writes the defaults array values with the given set.
