@@ -12,7 +12,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 
 ## Client Overview
 
-- 🔜 [**Article (6/8)**](#article)
+- 🔜 [**Article** (6/8)](#article)
 - 🔜 [**ArticleType** (14/15)](#articletype)
 - 🔜 [**ContainerType** (14/15)](#client-overview)
 - ✅ [**Folder**](#client-overview)
