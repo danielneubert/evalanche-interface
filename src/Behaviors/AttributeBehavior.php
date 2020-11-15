@@ -32,12 +32,90 @@ trait AttributeBehavior
     // Documentation Missing
     public function addAttribute(string $name, string $label, $type) : Attribute
     {
-        return new Attribute($this->getClient()->addAttribute($this->_id(), $name, $label, $type), $this->_name(), $this);
+        return new Attribute(
+            $this->getClient()->addAttribute(
+                $this->_id(),
+                $name,
+                $label,
+                $type
+            ),
+            $this->_name(),
+            $this,
+        );
     }
 
     // Documentation Missing
-    public function deleteAttribute(int $attributeId) : bool
+    public function deleteAttribute(? int $attributeId = null) : bool
     {
-        return $this->getClient()->removeAttribute($this->_id(), $attributeId);
+        return $this->getClient()->removeAttribute(
+            $this->_id(),
+            $this->_reference($attributeId),
+        );
+    }
+
+    // Documentation Missing
+    public function getOptions(? int $attributeId = null)
+    {
+        // check for containerType method
+        if (method_exists($this->getClient(), 'getAttributeOptionsByResourceIdAndAttributeId')) {
+            return $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
+                $this->_id(),
+                $this->_reference($attributeId),
+            );
+        } else {
+            return $this->getClient()->getAttributeOptions(
+                $this->_id(),
+                $this->_reference($attributeId),
+            );
+        }
+    }
+
+    // Documentation Missing
+    public function addOption(string $label, ? int $attributeId = null)
+    {
+        // check for containerType method
+        if (method_exists($this->getClient(), 'createAttributeOption')) {
+            return $this->getClient()->createAttributeOption(
+                $this->_id(),
+                $this->_reference($attributeId),
+                $label,
+            );
+        } else {
+            return $this->getClient()->addAttributeOption(
+                $this->_id(),
+                $this->_reference($attributeId),
+                $this->clientAccessor == 'Pool'
+                    ? [$label]
+                    : $label,
+            );
+        }
+    }
+
+    // ! Missing
+    // Documentation Missing
+    public function deleteOption(int $optionId, ? int $attributeId = null) : bool
+    {
+        // removeAttributeOption(int <article-type-id>,int <attribute-id>,int <attribute-option-id>): bool
+        // removeAttributeOption(int <container-type-id> int <attribute-id>, int <attribute-option-id>): bool
+        // deleteAttributeOption(int <pool-id>, int <attribute-id>, int <option-id>): PoolAttribute
+        return false;
+    }
+
+    // Documentation Missing
+    private function decomposeOptions(array $options) : array
+    {
+        return array_map(function ($option) {
+            return $this->decomposeOption($option);
+        }, $options);
+    }
+
+    // Documentation Missing
+    private function decomposeOption(object $option) : object
+    {
+        return (object) [
+            'id' => $option->getId(),
+            'name' => $option->getName(),
+            'label' => $option->getLabel(),
+        ];
     }
 }

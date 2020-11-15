@@ -44,10 +44,11 @@ class CollectionItem implements JsonSerializable
     public function __construct(object $item, string $type, $connector)
     {
         $this->type = $type;
-        $this->item = method_exists($this, 'createItem') ? $this->createItem($item) : $item;
+        $this->item = method_exists($this, 'createItem') ? $this->createItem($item, $connector->getId()) : $item;
         $this->connector = $connector->getConnector($type, EvalancheInterface::newMeta([
-            'id' => $this->item->id ?? null,
+            'id' => $this->item->_id ?? ($this->item->id ?? null),
             'folder' => $this->item->folder ?? null,
+            'reference' => $this->item->_reference ?? ($this->item->id ?? null),
         ]));
     }
 
@@ -70,6 +71,34 @@ class CollectionItem implements JsonSerializable
 
     /**
      * ------------------------------------------------------------
+     * Callable Methods
+     * ------------------------------------------------------------
+     */
+
+    /**
+     * Returns an array representation of the item content.
+     *
+     * @return array
+     */
+    public function toArray() : array
+    {
+        $item = $this->item;
+
+        if (isset($item->_id)) {
+            unset($item->_id);
+        }
+
+        if (isset($item->_reference)) {
+            unset($item->_reference);
+        }
+
+        return (array) $item;
+    }
+
+
+
+    /**
+     * ------------------------------------------------------------
      * Magic PHP Methods
      * ------------------------------------------------------------
      */
@@ -82,7 +111,7 @@ class CollectionItem implements JsonSerializable
      */
     public function jsonSerialize() : array
     {
-        return $this->item;
+        return $this->toArray();
     }
 
     /**
@@ -93,7 +122,7 @@ class CollectionItem implements JsonSerializable
      */
     public function __debugInfo()
     {
-        return (array) $this->item;
+        return $this->toArray();
     }
 
     /**

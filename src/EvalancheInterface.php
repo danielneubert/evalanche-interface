@@ -249,8 +249,32 @@ class EvalancheInterface
      * @var array
      */
     const CONNECTOR_DEFAULT = [
-        'id'     => null,
-        'folder' => null,
+        'id'        => null,
+        'folder'    => null,
+        'reference' => null,
+    ];
+
+    const ATTRIBUTE_TYPES = [
+        1  => 'Input',
+        2  => 'WYSIWYG::Large',
+        3  => 'Image',
+        4  => 'List::Link',
+        5  => 'DateTime',
+        6  => 'Select',
+        7  => 'Select::Multi',
+        8  => 'WYSIWYG',
+        9  => 'doc',
+        10 => 'Textarea',
+        11 => 'doc::hr',
+        12 => 'Color',
+        13 => 'Checkbox',
+        14 => 'doc::html',
+        15 => 'Container',
+        16 => 'Link',
+        17 => 'Code',
+        18 => 'List::Image',
+        19 => 'List::KeyValue',
+        20 => 'List::Container',
     ];
 
     /**
@@ -265,12 +289,12 @@ class EvalancheInterface
         21 => 'Article',
         22 => 'ContainerType',
         23 => 'Container',
-        33 => 'ArticleTemplate:mail',
-        34 => 'ArticleTemplate:text',
-        36 => 'ArticleTemplate:leadpage',
+        33 => 'ArticleTemplate::mail',
+        34 => 'ArticleTemplate::text',
+        36 => 'ArticleTemplate::leadpage',
         65 => 'MailingTemplate',
         66 => 'Mailing',
-        69 => 'Mailing:event',
-        76 => 'Mailing:trigger',
+        69 => 'Mailing::event',
+        76 => 'Mailing::trigger',
     ];
 }

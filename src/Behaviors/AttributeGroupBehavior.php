@@ -32,9 +32,19 @@ trait AttributeGroupBehavior
     }
 
     // Documentation Missing (Overwrites the AttributeBehavior::addAttribute())
-    public function addAttribute(string $name, string $label, $type, int $groupId) : Attribute
+    public function addAttribute(string $name, string $label, $type, ? int $groupId = null) : Attribute
     {
-        return new Attribute($this->getClient()->addAttribute($this->_id(), $name, $label, $type, $groupId), $this->_name(), $this);
+        return new Attribute(
+            $this->getClient()->addAttribute(
+                $this->_id(),
+                $name,
+                $label,
+                $type,
+                $this->_reference($groupId),
+            ),
+            $this->_name(),
+            $this,
+        );
     }
 
     // Documentation Missing
@@ -44,8 +54,11 @@ trait AttributeGroupBehavior
     }
 
     // Documentation Missing
-    public function deleteGroup(int $groupId) : bool
+    public function deleteGroup(? int $groupId = null) : bool
     {
-        return $this->getClient()->removeAttributeGroup($this->_id(), $groupId);
+        return $this->getClient()->removeAttributeGroup(
+            $this->_id(),
+            $this->_reference($groupId),
+        );
     }
 }

@@ -31,6 +31,11 @@ class Connector
         return $this->meta['id'];
     }
 
+    public function getId()
+    {
+        return $this->_id();
+    }
+
     protected function _folder()
     {
         return $this->meta['folder'];
@@ -39,6 +44,20 @@ class Connector
     protected function _interface()
     {
         return $this->interface;
+    }
+
+    protected function _reference(? int $default = null)
+    {
+        $value = $this->meta['reference'] ?? $default;
+
+        if (is_null($value)) {
+            $trace = debug_backtrace();
+            array_shift($trace);
+            $trace = array_shift($trace);
+            trigger_error("Uncaught ArgumentError: No reference passed for method {$trace['class']}::{$trace['function']}", E_USER_ERROR);
+        }
+
+        return $value;
     }
 
     public function getClient(? string $name = null)

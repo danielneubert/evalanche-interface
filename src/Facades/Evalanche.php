@@ -19,6 +19,8 @@ use Neubert\EvalancheInterface\EvalancheInterface;
  */
 class Evalanche
 {
+    const ATTRIBUTE_TYPES = EvalancheInterface::ATTRIBUTE_TYPES;
+
     /**
      * Singleton instance for static calls.
      *
