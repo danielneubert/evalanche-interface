@@ -12,9 +12,9 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 
 ## Client Overview
 
-- 🔜 [**Article**](#article)
-- 🔜 [**ArticleType**](#articletype)
-- 🔜 [**ContainerType**](#client-overview)
+- 🔜 [**Article (6/8)**](#article)
+- 🔜 [**ArticleType** (14/15)](#articletype)
+- 🔜 [**ContainerType** (14/15)](#client-overview)
 - ✅ [**Folder**](#client-overview)
 - 🔜  **ArticleTemplate**
 - 🔜  **Container**
@@ -22,8 +22,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 - 🔜  **Image**
 - 🔜  **Mailing**
 - 🔜  **MailingTemplate**
-- 🔜 [**Pool**](#pool)
-- 🔜 [**Profile**](#profile)
+- 🔜 [**Pool** (9/10)](#pool)
+- 🔜 [**Profile** (11/25)](#profile)
 - 🔜  **Targetgroup**
 - ❌ **~~Account~~** - *Not supported*
 - ❌ **~~Blacklist~~** - *Not supported*
@@ -80,8 +80,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**removeAttributeGroup()**                    |`articleType()->deleteGroup()`
 |✅|**copy()**                                    |`articleType()->copyTo()`
 |✅|**move()**                                    |`articleType()->moveTo()`
-|🔜|**createAttributeOption()**                   |*Planned*
-|🔜|**getAttributeOptions()**                     |*Planned*
+|✅|**createAttributeOption()**                   |`articleType()->addOption()`
+|✅|**getAttributeOptions()**                     |`articleType()->getOptions()`
 |🔜|**removeAttributeOption()**                   |*Planned*
 |❌|**~~assignRoleToAttribute()~~**               |*Not supported*
 |❌|**~~changeAttributeType()~~**                 |*Not supported*
@@ -112,8 +112,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**removeAttributeGroup()**                    |`containerType()->deleteGroup()`
 |✅|**copy()**                                    |`containerType()->copyTo()`
 |✅|**move()**                                    |`containerType()->moveTo()`
-|🔜|**addAttributeOption()**                      |*Planned*
-|🔜|**getAttributeOptionsByResourceIdAndAttributeId()**|*Planned*
+|✅|**addAttributeOption()**                      |`containerType()->addOption()`
+|✅|**getAttributeOptionsByResourceIdAndAttributeId()**|`containerType()->getOptions()`
 |🔜|**removeAttributeOption()**                   |*Planned*
 |❌|**~~getByExternalId()~~**                     |*Not supported*
 |❌|**~~getByTypeId()~~**                         |*Not supported*
@@ -150,9 +150,9 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**addAttribute()**                            |`pool()->addAttribute()`
 |✅|**deleteAttribute()**                         |`pool()->deleteAttribute()`
 |✅|**getAttributesByPool()**                     |`pool()->getAttributes()`
-|🔜|**addAttributeOption()**                      |*Planned*
+|✅|**addAttributeOption()**                      |`pool()->addOption()`
 |🔜|**deleteAttributeOption()**                   |*Planned*
-|🔜|**updateAttributeOption()**                   |*Planned*
+|❌|**updateAttributeOption()**                   |*Not supported*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getByExternalId()~~**                     |*Not supported*
 |❌|**~~getByTypeId()~~**                         |*Not supported*
@@ -179,18 +179,18 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**updateByPool()**                 |`pool()->updateProfiles()`
 |🔜|**create()**                       |`pool()->createProfile()`
 |🔜|**getBounces()**                   |*Planned*
-|🔜|**getByTargetGroup()**             |*Planned*
+|🔜|**getByTargetGroup()**             |*Planned for TargetGroup*
 |🔜|**getGrantedPermissions()**        |*Planned*
 |🔜|**getMailingStatus()**             |*Planned*
 |🔜|**getModifiedProfiles()**          |*Planned*
 |🔜|**getTrackingHistory()**           |*Planned*
 |🔜|**getUnsubscriptions()**           |*Planned*
 |🔜|**grantPermission()**              |*Planned*
-|🔜|**isInTargetgroups()**             |*Planned*
+|🔜|**isInTargetgroups()**             |*Planned for TargetGroup*
 |🔜|**massUpdate()**                   |*Planned*
 |🔜|**revokePermission()**             |*Planned*
 |🔜|**revokeTracking()**               |*Planned*
-|🔜|**updateByTargetGroup()**          |*Planned*
+|🔜|**updateByTargetGroup()**          |*Planned for TargetGroup*
 |❌|**~~addScore()~~**                 |*Not supported*
 |❌|**~~getActivityScoringHistory()~~**|*Not supported*
 |❌|**~~getByMilestone()~~**           |*Not supported*
