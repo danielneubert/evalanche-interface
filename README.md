@@ -1,8 +1,8 @@
 # EvalancheInterface
 
-[![Packagist Version 0.1.0](https://img.shields.io/packagist/v/neubert/evalanche-interface)](https://packagist.org/packages/neubert/evalanche-interface)
-[![License MIT](https://img.shields.io/packagist/l/neubert/evalanche-interface)](https://packagist.org/packages/neubert/evalanche-interface)
-[![Code Coverage 15%](https://img.shields.io/badge/coverage-15%25-orange)](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md)
+[![Packagist Version](https://img.shields.io/packagist/v/neubert/evalanche-interface?color=blue)](https://packagist.org/packages/neubert/evalanche-interface)
+[![License MIT](https://img.shields.io/packagist/l/neubert/evalanche-interface?color=success)](https://packagist.org/packages/neubert/evalanche-interface)
+[![Code Coverage 40%](https://img.shields.io/badge/coverage-40%25-yellow)](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md)
 
 
 
