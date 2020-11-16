@@ -25,6 +25,9 @@
         <testsuite name="connector--article-type">
             <file>tests/Connectors/ArticleTypeConnectorTest.php</file>
         </testsuite>
+        <testsuite name="connector--container">
+            <file>tests/Connectors/ContainerConnectorTest.php</file>
+        </testsuite>
         <testsuite name="connector--container-type">
             <file>tests/Connectors/ContainerTypeConnectorTest.php</file>
         </testsuite>

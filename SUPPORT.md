@@ -14,11 +14,11 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 
 - 🔜 [**Article** (6/8)](#article)
 - ✅ [**ArticleType**](#articletype)
-- ✅ [**ContainerType**](#client-overview)
-- ✅ [**Folder**](#client-overview)
 - 🔜  **ArticleTemplate**
-- 🔜  **Container**
+- 🔜 [**Container** (6/8)](#container)
+- ✅ [**ContainerType**](#containertype)
 - 🔜  **Document**
+- ✅ [**Folder**](#client-overview)
 - 🔜  **Image**
 - 🔜  **Mailing**
 - 🔜  **MailingTemplate**
@@ -92,6 +92,28 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |❌|**~~getDefaultFolderByMandatorId()~~**        |*Not supported*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getTypeIds()~~**                          |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## Container
+
+|Status|Method|Details|
+|:-:|-|-|
+|✅|**~~create()~~**                        |`folder()->createContainer()`
+|✅|**~~getByFolderId()~~**                 |`folder()->getContainers()`
+|✅|**~~copy()~~**                          |`container()->copyTo()`
+|✅|**~~delete()~~**                        |`container()->delete()`
+|✅|**~~getById()~~**                       |`container()->get()`
+|✅|**~~move()~~**                          |`container()->moveTo()`
+|🔜|**~~getDetailById()~~**                 |*Planned*
+|🔜|**~~update()~~**                        |*Planned*
+|❌|**~~getListByMandatorId()~~**           |*Not supported*
+|❌|**~~getByTypeId()~~**                   |*Not supported*
+|❌|**~~getDefaultFolderByMandatorId()~~**  |*Not supported*
+|❌|**~~getTypeIds()~~**                    |*Not supported*
+|❌|**~~getByExternalId()~~**               |*Not supported*
+
 
 [↑ **Get back to the client overview**](#client-overview)
 
@@ -205,3 +227,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |❌|**~~untagWithOption()~~**          |*Not supported*
 
 [↑ **Get back to the client overview**](#client-overview)
+
+
+
+
