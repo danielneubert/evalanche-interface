@@ -6,6 +6,7 @@ use Scn\EvalancheSoapApiConnector\EvalancheConnection;
 
 use Neubert\EvalancheInterface\Connectors\ArticleConnector;
 use Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
+use Neubert\EvalancheInterface\Connectors\ContainerConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
 use Neubert\EvalancheInterface\Connectors\FolderConnector;
 use Neubert\EvalancheInterface\Connectors\PoolConnector;
@@ -18,6 +19,7 @@ use Neubert\EvalancheInterface\Support\ProfileJobHandler;
  *
  * @method ArticleConnector article(int $reference)
  * @method ArticleTypeConnector articleType(int $reference)
+ * @method ContainerConnector container(int $reference)
  * @method ContainerTypeConnector containerType(int $reference)
  * @method FolderConnector folder(? int $reference = null)
  * @method PoolConnector pool(? int $reference = null)
@@ -38,6 +40,7 @@ class EvalancheInterface
     protected $connectors = [
         'Article'           => ArticleConnector::class,
         'ArticleType'       => ArticleTypeConnector::class,
+        'Container'         => ContainerConnector::class,
         'ContainerType'     => ContainerTypeConnector::class,
         'Folder'            => FolderConnector::class,
         'Pool'              => PoolConnector::class,
