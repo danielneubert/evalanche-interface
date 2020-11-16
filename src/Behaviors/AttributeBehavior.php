@@ -4,6 +4,8 @@ namespace Neubert\EvalancheInterface\Behaviors;
 
 use Neubert\EvalancheInterface\Collections\Attributes\Attribute;
 use Neubert\EvalancheInterface\Collections\Attributes\AttributeCollection;
+use Neubert\EvalancheInterface\Collections\Attributes\Option;
+use Neubert\EvalancheInterface\Collections\Attributes\OptionCollection;
 
 /**
  * @method AttributeCollection getAttributes()
@@ -58,14 +60,22 @@ trait AttributeBehavior
     {
         // check for containerType method
         if (method_exists($this->getClient(), 'getAttributeOptionsByResourceIdAndAttributeId')) {
-            return $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
-                $this->_id(),
-                $this->_reference($attributeId),
+            return new OptionCollection(
+                $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
+                    $this->_id(),
+                    $this->_reference($attributeId),
+                ),
+                $this->_name(),
+                $this,
             );
         } else {
-            return $this->getClient()->getAttributeOptions(
-                $this->_id(),
-                $this->_reference($attributeId),
+            return new OptionCollection(
+                $this->getClient()->getAttributeOptions(
+                    $this->_id(),
+                    $this->_reference($attributeId),
+                ),
+                $this->_name(),
+                $this,
             );
         }
     }
@@ -73,32 +83,49 @@ trait AttributeBehavior
     // Documentation Missing
     public function addOption(string $label, ? int $attributeId = null)
     {
-        // check for containerType method
+        // check for articleType method
         if (method_exists($this->getClient(), 'createAttributeOption')) {
-            return $this->getClient()->createAttributeOption(
-                $this->_id(),
-                $this->_reference($attributeId),
-                $label,
+            return new Option(
+                $this->getClient()->createAttributeOption(
+                    $this->_id(),
+                    $this->_reference($attributeId),
+                    $label,
+                ),
+                $this->_name(),
+                $this,
             );
         } else {
-            return $this->getClient()->addAttributeOption(
-                $this->_id(),
-                $this->_reference($attributeId),
-                $this->clientAccessor == 'Pool'
-                    ? [$label]
+            return new Option(
+                $this->getClient()->addAttributeOption(
+                    $this->_id(),
+                    $this->_reference($attributeId),
+                    $this->clientAccessor == 'Pool'
+                        ? [$label]
                     : $label,
+                ),
+                $this->_name(),
+                $this,
             );
         }
     }
 
-    // ! Missing
     // Documentation Missing
     public function deleteOption(int $optionId, ? int $attributeId = null) : bool
     {
-        // removeAttributeOption(int <article-type-id>,int <attribute-id>,int <attribute-option-id>): bool
-        // removeAttributeOption(int <container-type-id> int <attribute-id>, int <attribute-option-id>): bool
-        // deleteAttributeOption(int <pool-id>, int <attribute-id>, int <option-id>): PoolAttribute
-        return false;
+        // check for pool method
+        if (method_exists($this->getClient(), 'deleteAttributeOption')) {
+            return $this->getClient()->deleteAttributeOption(
+                $this->_id(),
+                $this->_reference($attributeId),
+                $optionId,
+            );
+        } else {
+            return $this->getClient()->removeAttributeOption(
+                $this->_id(),
+                $this->_reference($attributeId),
+                $optionId,
+            );
+        }
     }
 
     // Documentation Missing

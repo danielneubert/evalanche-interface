@@ -31,10 +31,20 @@ trait AttributeGroupBehaviorTestCase
 
     public function testAttributeGroupAddAttribute()
     {
-        $attribute = $this->getClientWith('attr--id')->addAttribute('TEST', 'Test', 1, $this->get('attr--group-id'));
+        $attribute = $this->getClientWith('attr--id')->addAttribute('TEST', 'Test', 6, $this->get('attr--group-id'));
         $this->assertInstanceOf(Attribute::class, $attribute);
         $this->set('attr--attribute-id', $attribute->id);
         $this->assertTrue(is_numeric($this->get('attr--attribute-id')));
+    }
+
+    public function testAttributeGroupGetGroups()
+    {
+        $groups = $this->getClientWith('attr--id')->getGroups();
+        $this->assertInstanceOf(GroupCollection::class, $groups);
+        $group = $groups->first(function ($item) {
+            return $item->id == $this->get('attr--group-id');
+        });
+        $this->assertNotNull($group);
     }
 
     public function testAttributeGroupGetAttributes()
@@ -47,14 +57,21 @@ trait AttributeGroupBehaviorTestCase
         $this->assertNotNull($attribute);
     }
 
-    public function testAttributeGroupGetGroups()
+    public function testAttributeGroupAttributeOptions()
     {
-        $groups = $this->getClientWith('attr--id')->getGroups();
-        $this->assertInstanceOf(GroupCollection::class, $groups);
-        $group = $groups->first(function ($item) {
-            return $item->id == $this->get('attr--group-id');
+        $found = false;
+        $this->getClientWith('attr--id')->getAttributes()->each(function ($attr) use (& $found) {
+            if ($attr->id == $this->get('attr--attribute-id')) {
+                $found = true;
+                $this->assertEquals($attr->id, $this->get('attr--attribute-id'));
+                $attrOption = $attr->addOption('TEST OPTION');
+                $attr->getOptions()->each(function ($option) use ($attrOption) {
+                    $this->assertEquals($option->id, $attrOption->id);
+                });
+                $this->assertTrue($attr->deleteOption($attrOption->id));
+            }
         });
-        $this->assertNotNull($group);
+        $this->assertTrue($found);
     }
 
     public function testAttributeGroupDeleteAttribute()

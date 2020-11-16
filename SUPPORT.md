@@ -13,8 +13,8 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 ## Client Overview
 
 - 🔜 [**Article** (6/8)](#article)
-- 🔜 [**ArticleType** (14/15)](#articletype)
-- 🔜 [**ContainerType** (14/15)](#client-overview)
+- ✅ [**ArticleType**](#articletype)
+- ✅ [**ContainerType**](#client-overview)
 - ✅ [**Folder**](#client-overview)
 - 🔜  **ArticleTemplate**
 - 🔜  **Container**
@@ -22,7 +22,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 - 🔜  **Image**
 - 🔜  **Mailing**
 - 🔜  **MailingTemplate**
-- 🔜 [**Pool** (9/10)](#pool)
+- ✅ [**Pool**](#pool)
 - 🔜 [**Profile** (11/25)](#profile)
 - 🔜  **Targetgroup**
 - ❌ **~~Account~~** - *Not supported*
@@ -82,7 +82,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**move()**                                    |`articleType()->moveTo()`
 |✅|**createAttributeOption()**                   |`articleType()->addOption()`
 |✅|**getAttributeOptions()**                     |`articleType()->getOptions()`
-|🔜|**removeAttributeOption()**                   |*Planned*
+|✅|**removeAttributeOption()**                   |`articleType()->deleteOption()`
 |❌|**~~assignRoleToAttribute()~~**               |*Not supported*
 |❌|**~~changeAttributeType()~~**                 |*Not supported*
 |❌|**~~getApplicableRoleTypes()~~**              |*Not supported*
@@ -114,7 +114,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**move()**                                    |`containerType()->moveTo()`
 |✅|**addAttributeOption()**                      |`containerType()->addOption()`
 |✅|**getAttributeOptionsByResourceIdAndAttributeId()**|`containerType()->getOptions()`
-|🔜|**removeAttributeOption()**                   |*Planned*
+|✅|**removeAttributeOption()**                   |`containerType()->deleteOption()`
 |❌|**~~getByExternalId()~~**                     |*Not supported*
 |❌|**~~getByTypeId()~~**                         |*Not supported*
 |❌|**~~getDefaultFolderByMandatorId()~~**        |*Not supported*
@@ -151,7 +151,7 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**deleteAttribute()**                         |`pool()->deleteAttribute()`
 |✅|**getAttributesByPool()**                     |`pool()->getAttributes()`
 |✅|**addAttributeOption()**                      |`pool()->addOption()`
-|🔜|**deleteAttributeOption()**                   |*Planned*
+|✅|**deleteAttributeOption()**                   |`pool()->deleteOption()`
 |❌|**updateAttributeOption()**                   |*Not supported*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getByExternalId()~~**                     |*Not supported*
