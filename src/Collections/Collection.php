@@ -69,7 +69,7 @@ class Collection implements IteratorAggregate, JsonSerializable
      */
     public function filter(callable $callback)
     {
-        $this->items = array_filter($this->items, $handler, ARRAY_FILTER_USE_BOTH);
+        $this->items = array_filter($this->items, $callback, ARRAY_FILTER_USE_BOTH);
         return $this;
     }
 
