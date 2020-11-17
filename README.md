@@ -27,7 +27,7 @@ This interface is a consistent wrapper arround the SOAP API of Evalanche. It is 
 The best way to install the EvalancheInterface to your project is using [Composer](https://getcomposer.org). To install the latest version just run the following command:
 
 ```sh
-composer install neubert/evalanche-interface
+composer require neubert/evalanche-interface
 ```
 
 Afterward you should be able to use the EvalancheInterface within your project, like so:
