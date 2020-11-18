@@ -3,6 +3,7 @@
 namespace Neubert\EvalancheInterface\Collections\Attributes;
 
 use Neubert\EvalancheInterface\Collections\CollectionItem;
+use Neubert\EvalancheInterface\EvalancheInterface;
 
 class Attribute extends CollectionItem
 {
@@ -15,10 +16,15 @@ class Attribute extends CollectionItem
             'id'         => $this->getProperty('id', $item),
             'name'       => $this->getProperty('name', $item),
             'label'      => $this->getProperty('label', $item),
-            'type'       => null,
-            'group'      => null,
-            'meta'       => [
-                'url'    => null,
+            'type'       => EvalancheInterface::ATTRIBUTE_TYPES[$this->getProperty('typeId', $item)] ?? null,
+            'typeId'     => $this->getProperty('typeId', $item),
+            'group'      => $this->getProperty('groupId', $item),
+            'meta'       => (object) [
+                'url'        => null,
+                'isRequired' => $this->getProperty('mandatory', $item),
+                'canOptions' => $this->getProperty('allowOptions', $item),
+                'info'       => $this->getProperty('helpText', $item),
+                'help'       => $this->getProperty('inputHelpText', $item),
             ],
         ];
     }
