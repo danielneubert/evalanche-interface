@@ -1,8 +1,9 @@
 # EvalancheInterface
 
 [![Packagist Version](https://img.shields.io/packagist/v/neubert/evalanche-interface?color=blue)](https://packagist.org/packages/neubert/evalanche-interface)
-[![License MIT](https://img.shields.io/packagist/l/neubert/evalanche-interface?color=success)](https://packagist.org/packages/neubert/evalanche-interface)
-[![Code Coverage 40%](https://img.shields.io/badge/coverage-40%25-yellow)](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md)
+[![License MIT](https://img.shields.io/packagist/l/neubert/evalanche-interface?color=brightgreen)](https://packagist.org/packages/neubert/evalanche-interface)
+[![Code Coverage 19%](https://img.shields.io/badge/coverage-19%25-yellow)](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md)
+[![Code Completion 45%](https://img.shields.io/badge/completion-45%25-brightgreen)](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md)
 
 
 
@@ -24,22 +25,26 @@ This interface is a consistent wrapper arround the SOAP API of Evalanche. It is 
 
 ## Installation
 
-The best way to install the EvalancheInterface to your project is using [Composer](https://getcomposer.org). To install the latest version just run the following command:
+The recommended way to install the EvalancheInterface is using [Composer](https://getcomposer.org). To install the latest version just run the following command:
 
 ```sh
 composer require neubert/evalanche-interface
 ```
 
-Afterward you should be able to use the EvalancheInterface within your project, like so:
+Afterwards you should be able to use the EvalancheInterface within your project, like so:
 
 ```php
-<?php
-
 use Neubert\EvalancheInterface\Facades\Evalanche;
 
 require __DIR__.'/vendor/autoload.php';
 
 Evalanche::setup('username', 'password');
+
+echo "<h1>Sub-Folders</p>";
+
+Evalanche::folder(1234)->getFolders()->each(function ($folder) {
+    echo "<p>{$folder->label}</p>";
+});
 ```
 
 
@@ -55,7 +60,7 @@ Evalanche::setup('username', 'password');
 Since this project isn't a complete rebuild of the Evalanche API, you may require some additional methods. Please read the [support list for all implemented and planned method calls](https://github.com/danielneubert/evalanche-interface/blob/master/SUPPORT.md) first.
 
 
-If something is either not supported or missing feel free to send a [feature request](https://github.com/danielneubert/evalanche-interface/issues/new?labels=enhancement,question&assignees=danielneubert&title=[Feature-Request]).
+If something is either not supported or missing feel free to send a [feature request](https://github.com/danielneubert/evalanche-interface/issues/new?labels=feature,question&assignees=danielneubert&title=[Feature-Request]).
 
 
 ## Issues

@@ -3,45 +3,204 @@
 This document is a short list with all currently supported API calls. The reference for this list is the official documentation of the [Evalanche Soap Api Connector by SC-Networks](https://github.com/SC-Networks/evalanche-soap-api-connector/blob/master/docs/index.md).
 
 
-
 ## Support Request
 
-Feel free to open up a [feature request issue](#). I will look at it and implement it probably later on in the project.
+If a method is missing out for you, feel free to open up a [feature request issue](https://github.com/danielneubert/evalanche-interface/issues/new?labels=feature,question&assignees=danielneubert&title=[Feature-Request]).
 
+
+## Coverage Overview
+
+<table style="width:100%" width="100%">
+<tr><th>Category</th><th align="center">✅</th><th align="center">🔜</th><th align="center">∑</th></tr>
+<tr>
+    <td><strong>Supported Clients</strong></td>
+    <td align="center"> 67</td>
+    <td align="center">148</td>
+    <td align="center">249</td>
+</tr><tr>
+    <td><strong>Not Supported Clients &nbsp; &nbsp; &nbsp; &nbsp;</strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">100</td>
+</tr>
+</table>
 
 
 ## Client Overview
 
-- 🔜 [**Article** (6/8)](#article)
-- ✅ [**ArticleType**](#articletype)
-- 🔜  **ArticleTemplate**
-- 🔜 [**Container** (6/8)](#container)
-- ✅ [**ContainerType**](#containertype)
-- 🔜  **Document**
-- ✅ [**Folder**](#client-overview)
-- 🔜  **Image**
-- 🔜  **Mailing**
-- 🔜  **MailingTemplate**
-- ✅ [**Pool**](#pool)
-- 🔜 [**Profile** (11/25)](#profile)
-- 🔜  **Targetgroup**
-- ❌ **~~Account~~** - *Not supported*
-- ❌ **~~Blacklist~~** - *Not supported*
-- ❌ **~~CouponList~~** - *Not supported*
-- ❌ **~~Form~~** - *Not supported*
-- ❌ **~~Mandator~~** - *Not supported*
-- ❌ **~~Milestone~~** - *Not supported*
-- ❌ **~~Pooldataminer~~** - *Not supported*
-- ❌ **~~Report~~** - *Not supported*
-- ❌ **~~Scoring~~** - *Not supported*
-- ❌ **~~Smartlink~~** - *Not supported*
-- ❌ **~~User~~** - *Not supported*
-- ❌ **~~Webhook~~** - *Not supported*
-- ❌ **~~Workflow~~** - *Not supported*
-
+<table style="width:100%" width="100%">
+<tr><th>Status</th><th>Client</th><th align="center">✅</th><th align="center">🔜</th><th align="center">∑</th></tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#article"><strong>Article</strong></a></td>
+    <td align="center"> 6</td>
+    <td align="center"> 8</td>
+    <td align="center">13</td>
+</tr>
+<tr>
+    <td align="center">✅</td>
+    <td><a href="#articletype"><strong>ArticleType</strong></a></td>
+    <td align="center">15</td>
+    <td align="center">15</td>
+    <td align="center">24</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#articletemplate"><strong>ArticleTemplate</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center"> 7</td>
+    <td align="center">12</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#container"><strong>Container</strong></a></td>
+    <td align="center"> 6</td>
+    <td align="center"> 8</td>
+    <td align="center">13</td>
+</tr>
+<tr>
+    <td align="center">✅</td>
+    <td><a href="#containertype"><strong>ContainerType</strong></a></td>
+    <td align="center">15</td>
+    <td align="center">15</td>
+    <td align="center">24</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#document"><strong>Document</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center"> 5</td>
+    <td align="center">10</td>
+</tr>
+<tr>
+    <td align="center">✅</td>
+    <td><a href="#folder"><strong>Folder</strong></a></td>
+    <td align="center"> 4</td>
+    <td align="center"> 4</td>
+    <td align="center"> 4</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#image"><strong>Image</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center"> 6</td>
+    <td align="center">11</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#mailing"><strong>Mailing</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center">19</td>
+    <td align="center">48</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#mailingtemplate"><strong>MailingTemplate</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center">19</td>
+    <td align="center">25</td>
+</tr>
+<tr>
+    <td align="center">✅</td>
+    <td><a href="#pool"><strong>Pool</strong></a></td>
+    <td align="center">10</td>
+    <td align="center">10</td>
+    <td align="center">16</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#profile"><strong>Profile</strong></a></td>
+    <td align="center">11</td>
+    <td align="center">25</td>
+    <td align="center">37</td>
+</tr>
+<tr>
+    <td align="center">🔜</td>
+    <td><a href="#targetgroup"><strong>Targetgroup</strong></a></td>
+    <td align="center"> 0</td>
+    <td align="center"> 7</td>
+    <td align="center">12</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Account</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 1</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Blacklist</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 3</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>CouponList</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 6</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Form</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">20</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Mandator</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 2</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Milestone</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">11</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Pooldataminer</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">11</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Report</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">12</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Scoring</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 1</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Smartlink</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">13</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>User</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 3</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Webhook</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center"> 1</td>
+</tr>
+<tr>
+    <td align="center">❌</td>
+    <td><strong><s>Workflow</s></strong></td>
+    <td align="center" colspan="2"><i>Not supported</i></td>
+    <td align="center">16</td>
+</tr>
+</table>
 
 -----
-
 
 ## Article
 
@@ -92,6 +251,26 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |❌|**~~getDefaultFolderByMandatorId()~~**        |*Not supported*
 |❌|**~~getListByMandatorId()~~**                 |*Not supported*
 |❌|**~~getTypeIds()~~**                          |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## ArticleTemplate
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**copy()**                              |*Planned*
+|🔜|**create()**                            |*Planned*
+|🔜|**delete()**                            |*Planned*
+|🔜|**move()**                              |*Planned*
+|🔜|**getByFolderId()**                     |*Planned*
+|🔜|**getById()**                           |*Planned*
+|🔜|**updateTemplate()**                    |*Planned*
+|❌|**getDefaultFolderByMandatorId()**      |*Not supported*
+|❌|**getListByMandatorId()**               |*Not supported*
+|❌|**getByExternalId()**                   |*Not supported*
+|❌|**getByTypeId()**                       |*Not supported*
+|❌|**getTypeIds()**                        |*Not supported*
 
 [↑ **Get back to the client overview**](#client-overview)
 
@@ -148,6 +327,24 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 [↑ **Get back to the client overview**](#client-overview)
 
 
+## Document
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**copy()**                              |*Planned*
+|🔜|**delete()**                            |*Planned*
+|🔜|**move()**                              |*Planned*
+|🔜|**getByFolderId()**                     |*Planned*
+|🔜|**getById()**                           |*Planned*
+|❌|**getDefaultFolderByMandatorId()**      |*Not supported*
+|❌|**getListByMandatorId()**               |*Not supported*
+|❌|**getByExternalId()**                   |*Not supported*
+|❌|**getByTypeId()**                       |*Not supported*
+|❌|**getTypeIds()**                        |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
 ## Folder
 
 |Status|Method|Details|
@@ -156,6 +353,114 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**delete()**                                  |`folder()->delete()`
 |✅|**getSubFolderById()**                        |`folder()->getFolders()`
 |✅|**get()**                                     |`folder()->get()`
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## Image
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**copy()**                              |*Planned*
+|🔜|**create()**                            |*Planned*
+|🔜|**delete()**                            |*Planned*
+|🔜|**move()**                              |*Planned*
+|🔜|**getByFolderId()**                     |*Planned*
+|🔜|**getById()**                           |*Planned*
+|❌|**getDefaultFolderByMandatorId()**      |*Not supported*
+|❌|**getListByMandatorId()**               |*Not supported*
+|❌|**getByExternalId()**                   |*Not supported*
+|❌|**getByTypeId()**                       |*Not supported*
+|❌|**getTypeIds()**                        |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## Mailing
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**addArticles()**                               |*Planned*
+|🔜|**copy()**                                      |*Planned*
+|🔜|**createDraft()**                               |*Planned*
+|🔜|**delete()**                                    |*Planned*
+|🔜|**getArticlesByMailingId()**                    |*Planned*
+|🔜|**getByFolderId()**                             |*Planned*
+|🔜|**getById()**                                   |*Planned*
+|🔜|**getConfiguration()**                          |*Planned*
+|🔜|**getDetailsById()**                            |*Planned*
+|🔜|**getStatus()**                                 |*Planned*
+|🔜|**getSubjectsByMailingId()**                    |*Planned*
+|🔜|**move()**                                      |*Planned*
+|🔜|**removeAllArticles()**                         |*Planned*
+|🔜|**removeArticles()**                            |*Planned*
+|🔜|**sendToProfiles()**                            |*Planned*
+|🔜|**sendToTargetGroup()**                         |*Planned*
+|🔜|**setConfiguration()**                          |*Planned*
+|🔜|**setSubjects()**                               |*Planned*
+|🔜|**updateTitle()**                               |*Planned*
+|❌|**~~getAllArticleImpressionProfiles()~~**       |*Not supported*
+|❌|**~~getAllLinkClickProfiles()~~**               |*Not supported*
+|❌|**~~getArticleImpressionProfiles()~~**          |*Not supported*
+|❌|**~~getArticleStatistics()~~**                  |*Not supported*
+|❌|**~~getBounceProfiles()~~**                     |*Not supported*
+|❌|**~~getByExternalId()~~**                       |*Not supported*
+|❌|**~~getByTypeId()~~**                           |*Not supported*
+|❌|**~~getClickProfiles()~~**                      |*Not supported*
+|❌|**~~getClicks()~~**                             |*Not supported*
+|❌|**~~getClientStatisticById()~~**                |*Not supported*
+|❌|**~~getDefaultFolderByMandatorId()~~**          |*Not supported*
+|❌|**~~getHardbounceProfiles()~~**                 |*Not supported*
+|❌|**~~getImpressionProfiles()~~**                 |*Not supported*
+|❌|**~~getImpressions()~~**                        |*Not supported*
+|❌|**~~getJobInformationByJobId()~~**              |*Not supported*
+|❌|**~~getListByMandatorId()~~**                   |*Not supported*
+|❌|**~~getLinkClickProfiles()~~**                  |*Not supported*
+|❌|**~~getMultipleClickProfiles()~~**              |*Not supported*
+|❌|**~~getMultipleImpressionProfiles()~~**         |*Not supported*
+|❌|**~~getRecipientsProfiles()~~**                 |*Not supported*
+|❌|**~~getResultCursorByJobId()~~**                |*Not supported*
+|❌|**~~getResults()~~**                            |*Not supported*
+|❌|**~~getSendableDrafts()~~**                     |*Not supported*
+|❌|**~~getSendableDraftsByMandatorId()~~**         |*Not supported*
+|❌|**~~getSoftbounceProfiles()~~**                 |*Not supported*
+|❌|**~~getStatisticsByMailingId()~~**              |*Not supported*
+|❌|**~~getTypeIds()~~**                            |*Not supported*
+|❌|**~~getUnsubscriptionProfiles()~~**             |*Not supported*
+|❌|**~~setResultCursor()~~**                       |*Not supported*
+
+[↑ **Get back to the client overview**](#client-overview)
+
+
+## MailingTemplate
+
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**addArticles()**                     |*Planned*
+|🔜|**addSlot()**                         |*Planned*
+|🔜|**addTemplatesToSlot()**              |*Planned*
+|🔜|**copy()**                            |*Planned*
+|🔜|**delete()**                          |*Planned*
+|🔜|**getById()**                         |*Planned*
+|🔜|**getConfiguration()**                |*Planned*
+|🔜|**getSlotconfiguration()**            |*Planned*
+|🔜|**getSources()**                      |*Planned*
+|🔜|**move()**                            |*Planned*
+|🔜|**removeAllArticles()**               |*Planned*
+|🔜|**removeArticles()**                  |*Planned*
+|🔜|**removeSlot()**                      |*Planned*
+|🔜|**removeTemplateFromSlot()**          |*Planned*
+|🔜|**setConfiguration()**                |*Planned*
+|🔜|**setSources()**                      |*Planned*
+|🔜|**updateTitle()**                     |*Planned*
+|🔜|**updateSlot()**                      |*Planned*
+|🔜|**updateSlotTemplates()**             |*Planned*
+|❌|**~~getByExternalId()~~**             |*Not supported*
+|❌|**~~getByFolderId()~~**               |*Not supported*
+|❌|**~~getByTypeId()~~**                 |*Not supported*
+|❌|**~~getDefaultFolderByMandatorId()~~**|*Not supported*
+|❌|**~~getListByMandatorId()~~**         |*Not supported*
+|❌|**~~getTypeIds()~~**                  |*Not supported*
 
 [↑ **Get back to the client overview**](#client-overview)
 
@@ -201,18 +506,18 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 |✅|**updateByPool()**                 |`pool()->updateProfiles()`
 |🔜|**create()**                       |`pool()->createProfile()`
 |🔜|**getBounces()**                   |*Planned*
-|🔜|**getByTargetGroup()**             |*Planned for TargetGroup*
+|🔜|**getByTargetGroup()**             |*Planned*
 |🔜|**getGrantedPermissions()**        |*Planned*
 |🔜|**getMailingStatus()**             |*Planned*
 |🔜|**getModifiedProfiles()**          |*Planned*
 |🔜|**getTrackingHistory()**           |*Planned*
 |🔜|**getUnsubscriptions()**           |*Planned*
 |🔜|**grantPermission()**              |*Planned*
-|🔜|**isInTargetgroups()**             |*Planned for TargetGroup*
+|🔜|**isInTargetgroups()**             |*Planned*
 |🔜|**massUpdate()**                   |*Planned*
 |🔜|**revokePermission()**             |*Planned*
 |🔜|**revokeTracking()**               |*Planned*
-|🔜|**updateByTargetGroup()**          |*Planned for TargetGroup*
+|🔜|**updateByTargetGroup()**          |*Planned*
 |❌|**~~addScore()~~**                 |*Not supported*
 |❌|**~~getActivityScoringHistory()~~**|*Not supported*
 |❌|**~~getByMilestone()~~**           |*Not supported*
@@ -229,5 +534,21 @@ Feel free to open up a [feature request issue](#). I will look at it and impleme
 [↑ **Get back to the client overview**](#client-overview)
 
 
+## TargetGroup
 
+|Status|Method|Details|
+|:-:|-|-|
+|🔜|**createByOption()**                  |*Planned*
+|🔜|**copy()**                            |*Planned*
+|🔜|**delete()**                          |*Planned*
+|🔜|**move()**                            |*Planned*
+|🔜|**getByFolderId()**                   |*Planned*
+|🔜|**getById()**                         |*Planned*
+|🔜|**getDetailById()**                   |*Planned*
+|❌|**~~getByExternalId()~~**             |*Not supported*
+|❌|**~~getByTypeId()~~**                 |*Not supported*
+|❌|**~~getDefaultFolderByMandatorId()~~**|*Not supported*
+|❌|**~~getListByMandatorId()~~**         |*Not supported*
+|❌|**~~getTypeIds()~~**                  |*Not supported*
 
+[↑ **Get back to the client overview**](#client-overview)
