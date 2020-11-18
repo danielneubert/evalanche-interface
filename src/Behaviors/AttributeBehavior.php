@@ -6,16 +6,30 @@ use Neubert\EvalancheInterface\Collections\Attributes\Attribute;
 use Neubert\EvalancheInterface\Collections\Attributes\AttributeCollection;
 use Neubert\EvalancheInterface\Collections\Attributes\Option;
 use Neubert\EvalancheInterface\Collections\Attributes\OptionCollection;
+use Neubert\EvalancheInterface\EvalancheInterface;
 
 /**
  * @method AttributeCollection getAttributes()
  * @method Attribute addAttribute(string $name, string $label, $type)
- * @method bool deleteAttribute(int $attributeId)
+ * @method bool deleteAttribute(? int $attributeId = null)
+ * @method OptionCollection getOptions(? int $attributeId = null)
+ * @method Option addOption(string $label, ? int $attributeId = null)
+ * @method bool deleteOption(int $optionId, ? int $attributeId = null)
  * @see Neubert\EvalancheInterface\Behaviors\AttributeBehavior
  */
 trait AttributeBehavior
 {
-    // Documentation Missing
+    /**
+     * --------------------------------------------------
+     * Attributes
+     * --------------------------------------------------
+     */
+
+    /**
+     * Receive all attributes for the resource.
+     *
+     * @return AttributeCollection
+     */
     public function getAttributes() : AttributeCollection
     {
         if (method_exists($this->getClient(), 'getAttributesByResourceId')) {
@@ -31,7 +45,14 @@ trait AttributeBehavior
         return new AttributeCollection($this->getClient()->getAttributes($this->_id()), $this->_name(), $this);
     }
 
-    // Documentation Missing
+    /**
+     * Add an attribute to the resource.
+     *
+     * @param  string          $name
+     * @param  string          $label
+     * @param  string|integer  $type
+     * @return Attribute
+     */
     public function addAttribute(string $name, string $label, $type) : Attribute
     {
         return new Attribute(
@@ -39,14 +60,19 @@ trait AttributeBehavior
                 $this->_id(),
                 $name,
                 $label,
-                $type
+                $this->_resolveType($type),
             ),
             $this->_name(),
             $this,
         );
     }
 
-    // Documentation Missing
+    /**
+     * Deletes an attribute from the resource.
+     *
+     * @param  integer|null  $attributeId
+     * @return boolean
+     */
     public function deleteAttribute(? int $attributeId = null) : bool
     {
         return $this->getClient()->removeAttribute(
@@ -55,11 +81,24 @@ trait AttributeBehavior
         );
     }
 
-    // Documentation Missing
-    public function getOptions(? int $attributeId = null)
+
+
+    /**
+     * --------------------------------------------------
+     * Attribute Options
+     * --------------------------------------------------
+     */
+
+    /**
+     * Receive all options for the attribute.
+     *
+     * @param  integer|null  $attributeId
+     * @return void
+     */
+    public function getOptions(? int $attributeId = null) : OptionCollection
     {
-        // check for containerType method
         if (method_exists($this->getClient(), 'getAttributeOptionsByResourceIdAndAttributeId')) {
+            // support for containerType
             return new OptionCollection(
                 $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
                     $this->_id(),
@@ -80,11 +119,17 @@ trait AttributeBehavior
         }
     }
 
-    // Documentation Missing
-    public function addOption(string $label, ? int $attributeId = null)
+    /**
+     * Add an option to the attribute.
+     *
+     * @param  string        $label
+     * @param  integer|null  $attributeId
+     * @return void
+     */
+    public function addOption(string $label, ? int $attributeId = null) : Option
     {
-        // check for articleType method
         if (method_exists($this->getClient(), 'createAttributeOption')) {
+            // support for articleType
             return new Option(
                 $this->getClient()->createAttributeOption(
                     $this->_id(),
@@ -109,11 +154,17 @@ trait AttributeBehavior
         }
     }
 
-    // Documentation Missing
+    /**
+     * Deletes an option from the attribute.
+     *
+     * @param  integer       $optionId
+     * @param  integer|null  $attributeId
+     * @return boolean
+     */
     public function deleteOption(int $optionId, ? int $attributeId = null) : bool
     {
-        // check for pool method
         if (method_exists($this->getClient(), 'deleteAttributeOption')) {
+            // support for pool
             return $this->getClient()->deleteAttributeOption(
                 $this->_id(),
                 $this->_reference($attributeId),
@@ -128,21 +179,37 @@ trait AttributeBehavior
         }
     }
 
-    // Documentation Missing
-    private function decomposeOptions(array $options) : array
-    {
-        return array_map(function ($option) {
-            return $this->decomposeOption($option);
-        }, $options);
-    }
 
-    // Documentation Missing
-    private function decomposeOption(object $option) : object
+
+    /**
+     * --------------------------------------------------
+     * Internal Method
+     * --------------------------------------------------
+     */
+
+    /**
+     * Resolves the given type wether it's an integer or a string and returns the type id.
+     *
+     * @param  integer|string  $type
+     * @return integer
+     */
+    protected function _resolveType($type) : int
     {
-        return (object) [
-            'id' => $option->getId(),
-            'name' => $option->getName(),
-            'label' => $option->getLabel(),
-        ];
+        $given = $type;
+
+        if (is_string($type) && in_array($type, EvalancheInterface::ATTRIBUTE_TYPES)) {
+            $type = array_search($type, EvalancheInterface::ATTRIBUTE_TYPES);
+        }
+
+        if (!is_numeric($type)) {
+            $trace = debug_backtrace();
+            array_shift($trace);
+            $trace = array_shift($trace);
+            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\AttributeBehavior::addAttribute
+            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\GroupBehavior::addAttribute
+            trigger_error("Undefined attribue type \"{$given}\": {$trace['class']}::{$trace['function']}", E_USER_ERROR);
+        }
+
+        return $type;
     }
 }
