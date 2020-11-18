@@ -14,21 +14,16 @@ use Neubert\EvalancheInterface\Connectors\ProfileConnector;
 use Neubert\EvalancheInterface\Support\ProfileJobHandler;
 
 /**
- * @var const CONNECTOR_DEFAULT
- * @var const RESOURCE_TYPES
- *
  * @method ArticleConnector article(int $reference)
  * @method ArticleTypeConnector articleType(int $reference)
- * @method ContainerConnector container(int $reference)
  * @method ContainerTypeConnector containerType(int $reference)
  * @method FolderConnector folder(? int $reference = null)
  * @method PoolConnector pool(? int $reference = null)
- *
+ * @method ProfileJobHandler job(string $reference)
  * @method void setDefault($keyOrArray, ? int $value = null)
- *
  * @method mixed getClient(string $name)
  * @method mixed getConnector(string $name, array $meta = self::CONNECTOR_DEFAULT)
- * @method array newMeta(array $meta)
+ * @see Neubert\EvalancheInterface\EvalancheInterface
  */
 class EvalancheInterface
 {
@@ -159,7 +154,7 @@ class EvalancheInterface
      * @param  integer|null  $value
      * @return void
      */
-    public function setDefault($keyOrArray, ? int $value = null)
+    public function setDefault($keyOrArray, ? int $value = null) : void
     {
         if (is_array($keyOrArray)) {
             $this->defaults = array_merge($this->defaults, $keyOrArray);
@@ -247,7 +242,7 @@ class EvalancheInterface
      */
 
     /**
-     * All defaults a Connector gets populated with.
+     * Connector default values.
      *
      * @var array
      */
@@ -257,6 +252,11 @@ class EvalancheInterface
         'reference' => null,
     ];
 
+    /**
+     * Attribute types.
+     *
+     * @var array
+     */
     const ATTRIBUTE_TYPES = [
         1  => 'Input',
         2  => 'Textarea/Full',
@@ -281,7 +281,7 @@ class EvalancheInterface
     ];
 
     /**
-     * List of Evalanche resource types.
+     * Resource types.
      *
      * @var array
      */
@@ -292,12 +292,12 @@ class EvalancheInterface
         21 => 'Article',
         22 => 'ContainerType',
         23 => 'Container',
-        33 => 'ArticleTemplate::mail',
-        34 => 'ArticleTemplate::text',
-        36 => 'ArticleTemplate::leadpage',
+        33 => 'ArticleTemplate',
+        34 => 'ArticleTemplate/Text',
+        36 => 'ArticleTemplate/Leadpage',
         65 => 'MailingTemplate',
         66 => 'Mailing',
-        69 => 'Mailing::event',
-        76 => 'Mailing::trigger',
+        69 => 'Mailing/Event',
+        76 => 'Mailing/Trigger',
     ];
 }

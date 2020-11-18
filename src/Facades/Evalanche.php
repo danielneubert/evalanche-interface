@@ -5,21 +5,38 @@ namespace Neubert\EvalancheInterface\Facades;
 use Neubert\EvalancheInterface\EvalancheInterface;
 
 /**
- * @method setup(string $username, string $password, ? string $host = null, bool $debug = false)
+ * @method static void setup(string $username, string $password, ? string $host = null, bool $debug = false)
  *
- * @see \Neubert\EvalancheInterface\EvalancheInterface
- * @method ArticleConnector article(int $reference)
- * @method ArticleTypeConnector articleType(int $reference)
- * @method ContainerTypeConnector containerType(int $reference)
- * @method FolderConnector folder(? int $reference = null)
- * @method void setDefault($keyOrArray, ? int $value = null)
- * @method mixed getClient(string $name)
- * @method mixed getConnector(string $name, array $meta = self::CONNECTOR_DEFAULT)
- * @method array newMeta(array $meta)
+ * @method static ArticleConnector article(int $reference)
+ * @method static ArticleTypeConnector articleType(int $reference)
+ * @method static ContainerTypeConnector containerType(int $reference)
+ * @method static FolderConnector folder(? int $reference = null)
+ * @method static PoolConnector pool(? int $reference = null)
+ * @method static ProfileJobHandler job(string $reference)
+ * @method static void setDefault($keyOrArray, ? int $value = null)
+ * @method static mixed getClient(string $name)
+ * @method static mixed getConnector(string $name, array $meta = self::CONNECTOR_DEFAULT)
+ * @see Neubert\EvalancheInterface\EvalancheInterface
  */
 class Evalanche
 {
+    /**
+     * @see Neubert\EvalancheInterface\EvalancheInterface::CONNECTOR_DEFAULT
+     * @var array
+     */
+    const CONNECTOR_DEFAULT = EvalancheInterface::CONNECTOR_DEFAULT;
+
+    /**
+     * @see Neubert\EvalancheInterface\EvalancheInterface::ATTRIBUTE_TYPES
+     * @var array
+     */
     const ATTRIBUTE_TYPES = EvalancheInterface::ATTRIBUTE_TYPES;
+
+    /**
+     * @see Neubert\EvalancheInterface\EvalancheInterface::RESOURCE_TYPES
+     * @var array
+     */
+    const RESOURCE_TYPES = EvalancheInterface::RESOURCE_TYPES;
 
     /**
      * Singleton instance for static calls.
