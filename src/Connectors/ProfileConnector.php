@@ -17,7 +17,7 @@ class ProfileConnector extends Connector
     protected $clientAccessor = 'Profile';
 
     // Documentation Missing
-    public function get() : Profile
+    public function get(): Profile
     {
         return new Profile($this->getClient()->getById($this->_id()), 'Profile', $this);
     }
@@ -29,7 +29,7 @@ class ProfileConnector extends Connector
     }
 
     // Documentation Missing
-    public function delete() : bool
+    public function delete(): bool
     {
         return $this->getClient()->delete([$this->_id()]);
     }

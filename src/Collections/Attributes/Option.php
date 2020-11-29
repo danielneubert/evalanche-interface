@@ -14,7 +14,7 @@ class Option extends CollectionItem
             '_reference' => $this->getProperty('id', $item),
             'id'         => $this->getProperty('id', $item),
             'name'       => $this->getProperty('name', $item),
-            'label'      => $this->getProperty('label', $item),
+            'label'      => $this->getProperty('label', $item) ?? $this->getProperty('value', $item),
             'type'       => null,
             'group'      => null,
             'meta'       => [

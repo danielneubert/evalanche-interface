@@ -3,7 +3,6 @@
 namespace Neubert\EvalancheInterface;
 
 use Scn\EvalancheSoapApiConnector\EvalancheConnection;
-
 use Neubert\EvalancheInterface\Connectors\ArticleConnector;
 use Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerConnector;
@@ -11,14 +10,18 @@ use Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
 use Neubert\EvalancheInterface\Connectors\FolderConnector;
 use Neubert\EvalancheInterface\Connectors\PoolConnector;
 use Neubert\EvalancheInterface\Connectors\ProfileConnector;
+use Neubert\EvalancheInterface\Connectors\TargetGroupConnector;
 use Neubert\EvalancheInterface\Support\ProfileJobHandler;
 
 /**
  * @method ArticleConnector article(int $reference)
  * @method ArticleTypeConnector articleType(int $reference)
+ * @method ContainerConnector container(int $reference)
  * @method ContainerTypeConnector containerType(int $reference)
  * @method FolderConnector folder(? int $reference = null)
  * @method PoolConnector pool(? int $reference = null)
+ * @method ProfileConnector profile(int $reference = null)
+ * @method TargetGroupConnector targetgroup(string $reference)
  * @method ProfileJobHandler job(string $reference)
  * @method void setDefault($keyOrArray, ? int $value = null)
  * @method mixed getClient(string $name)
@@ -40,6 +43,7 @@ class EvalancheInterface
         'Folder'            => FolderConnector::class,
         'Pool'              => PoolConnector::class,
         'Profile'           => ProfileConnector::class,
+        'TargetGroup'       => TargetGroupConnector::class,
     ];
 
     /**
@@ -71,7 +75,7 @@ class EvalancheInterface
      * @param  integer  $reference
      * @return ArticleConnector
      */
-    public function article(int $reference) : ArticleConnector
+    public function article(int $reference): ArticleConnector
     {
         return $this->getConnector('Article', self::newMeta([
             'id' => $reference,
@@ -84,9 +88,22 @@ class EvalancheInterface
      * @param  integer  $reference
      * @return ArticleTypeConnector
      */
-    public function articleType(int $reference) : ArticleTypeConnector
+    public function articleType(int $reference): ArticleTypeConnector
     {
         return $this->getConnector('ArticleType', self::newMeta([
+            'id' => $reference,
+        ]));
+    }
+
+    /**
+     * Provides the ContainerConnector
+     *
+     * @param  integer  $reference
+     * @return ContainerConnector
+     */
+    public function container(int $reference): ContainerConnector
+    {
+        return $this->getConnector('Container', self::newMeta([
             'id' => $reference,
         ]));
     }
@@ -97,7 +114,7 @@ class EvalancheInterface
      * @param  integer  $reference
      * @return ContainerTypeConnector
      */
-    public function containerType(int $reference) : ContainerTypeConnector
+    public function containerType(int $reference): ContainerTypeConnector
     {
         return $this->getConnector('ContainerType', self::newMeta([
             'id' => $reference,
@@ -110,7 +127,7 @@ class EvalancheInterface
      * @param  integer  $reference
      * @return FolderConnector
      */
-    public function folder(? int $reference = null) : FolderConnector
+    public function folder(?int $reference = null): FolderConnector
     {
         return $this->getConnector('Folder', self::newMeta([
             'id' => $reference ?? ($this->defaults['folder'] ?? null),
@@ -123,10 +140,36 @@ class EvalancheInterface
      * @param  integer  $reference
      * @return PoolConnector
      */
-    public function pool(? int $reference = null) : PoolConnector
+    public function pool(?int $reference = null): PoolConnector
     {
         return $this->getConnector('Pool', self::newMeta([
             'id' => $reference ?? ($this->defaults['pool'] ?? null),
+        ]));
+    }
+
+    /**
+     * Provides the PoolConnector
+     *
+     * @param  integer  $reference
+     * @return ProfileConnector
+     */
+    public function profile(int $reference): ProfileConnector
+    {
+        return $this->getConnector('Profile', self::newMeta([
+            'id' => $reference,
+        ]));
+    }
+
+    /**
+     * Provides the PoolConnector
+     *
+     * @param  integer  $reference
+     * @return TargetGroupConnector
+     */
+    public function targetgroup(int $reference): TargetGroupConnector
+    {
+        return $this->getConnector('TargetGroup', self::newMeta([
+            'id' => $reference,
         ]));
     }
 
@@ -142,7 +185,7 @@ class EvalancheInterface
      * @param  string  $reference
      * @return ProfileJobHandler
      */
-    public function job(string $reference) : ProfileJobHandler
+    public function job(string $reference): ProfileJobHandler
     {
         return new ProfileJobHandler($reference, $this);
     }
@@ -154,7 +197,7 @@ class EvalancheInterface
      * @param  integer|null  $value
      * @return void
      */
-    public function setDefault($keyOrArray, ? int $value = null) : void
+    public function setDefault($keyOrArray, ?int $value = null): void
     {
         if (is_array($keyOrArray)) {
             $this->defaults = array_merge($this->defaults, $keyOrArray);
@@ -206,7 +249,7 @@ class EvalancheInterface
      * @param  array   $meta
      * @return array
      */
-    public static function newMeta(array $meta) : array
+    public static function newMeta(array $meta): array
     {
         return array_merge(self::CONNECTOR_DEFAULT, $meta);
     }
@@ -225,7 +268,7 @@ class EvalancheInterface
      * @param  string|null  $host
      * @param  boolean      $debug
      */
-    public function __construct(string $username, string $password, ? string $host = null, bool $debug = false)
+    public function __construct(string $username, string $password, ?string $host = null, bool $debug = false)
     {
         $this->connection = EvalancheConnection::create(
             $host ?? 'scnem2.com',
@@ -278,6 +321,30 @@ class EvalancheInterface
         18 => 'List/Image',
         19 => 'List/KeyValue',
         20 => 'List/Container',
+    ];
+
+    /**
+     * Pool attribute types.
+     *
+     * @var array
+     */
+    const ATTRIBUTE_TYPES_POOL = [
+        1  => 'Select/Salutation',
+        2  => 'Select/Country',
+        3  => 'Select/State',
+        4  => 'Input/PhoneMobilePrefix',
+        5  => 'Input',
+        6  => 'Textarea',
+        7  => 'Select',
+        8  => 'Select/Multible',
+        9  => 'Input/Date',
+        10 => 'Input/Email',
+        11 => 'Input/DateTime',
+        12 => 'Select/Language',
+        16 => 'Checkbox',
+        20 => 'Input/Number',
+        21 => 'Input/Zip',
+        22 => 'Input/IpAddress',
     ];
 
     /**

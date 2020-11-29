@@ -8,6 +8,7 @@ use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
 use Neubert\EvalancheInterface\Collections\Profiles\Profile;
 use Neubert\EvalancheInterface\Collections\Profiles\ProfileCollection;
 use Neubert\EvalancheInterface\Support\ProfileJobHandler;
+use Neubert\EvalancheInterface\Support\HashMap;
 
 /**
  * @method AttributeCollection getAttributes()
@@ -36,7 +37,7 @@ class PoolConnector extends Connector
     /**
      * The arguments for requesting specific profiles.
      *
-     * @var array
+     * @var object|null
      */
     protected $conditional = null;
 
@@ -55,7 +56,7 @@ class PoolConnector extends Connector
     }
 
     // Documentation Missing
-    public function where(string $key, $value) : PoolConnector
+    public function where(string $key, $value): PoolConnector
     {
         $this->conditional->key = strtoupper($key);
         $this->conditional->value = $value;
@@ -90,7 +91,7 @@ class PoolConnector extends Connector
     }
 
     // Documentation Missing
-    public function updateProfiles(array $values) : bool
+    public function updateProfiles(array $values, ?string $keyAttribute = null, bool $merge = true, bool $ignoreMissing = false)
     {
         if (!is_null($this->conditional->key)) {
             return $this->getClient('Profile')->updateByKey(
@@ -98,6 +99,17 @@ class PoolConnector extends Connector
                 $this->conditional->key,
                 $this->conditional->value,
                 HashMap::compose($values),
+            );
+        } elseif (is_string($keyAttribute)) {
+            [$attributes, $data] = HashMap::composeMultible($values);
+
+            return $this->getClient('Profile')->massUpdate(
+                $this->_id(),
+                strtoupper($keyAttribute),
+                $attributes,
+                $data,
+                $merge,
+                $ignoreMissing,
             );
         } else {
             return $this->getClient('Profile')->updateByPool(

@@ -49,6 +49,7 @@ class CollectionItem implements JsonSerializable
             'id' => $this->item->_id ?? ($this->item->id ?? null),
             'folder' => $this->item->folder ?? null,
             'reference' => $this->item->_reference ?? ($this->item->id ?? null),
+            'resultCache' => $item,
         ]));
     }
 

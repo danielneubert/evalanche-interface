@@ -2,6 +2,7 @@
 
 namespace Neubert\EvalancheInterface\Behaviors;
 
+use Scn\EvalancheSoapApiConnector\Client\Pool\PoolClient;
 use Neubert\EvalancheInterface\Collections\Attributes\Attribute;
 use Neubert\EvalancheInterface\Collections\Attributes\AttributeCollection;
 use Neubert\EvalancheInterface\Collections\Attributes\Option;
@@ -97,25 +98,37 @@ trait AttributeBehavior
      */
     public function getOptions(? int $attributeId = null) : OptionCollection
     {
-        if (method_exists($this->getClient(), 'getAttributeOptionsByResourceIdAndAttributeId')) {
-            // support for containerType
+        if ($this->clientAccessor == 'Pool') {
+            if (is_null($this->getMeta('resultCache'))) {
+                trigger_error("Attribute options can't be accessed without fetching all attributes. (getAttributes)", E_USER_ERROR);
+            }
+
             return new OptionCollection(
-                $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
-                    $this->_id(),
-                    $this->_reference($attributeId),
-                ),
+                $this->getMeta('resultCache')->getOptions(),
                 $this->_name(),
                 $this,
             );
         } else {
-            return new OptionCollection(
-                $this->getClient()->getAttributeOptions(
-                    $this->_id(),
-                    $this->_reference($attributeId),
-                ),
-                $this->_name(),
-                $this,
-            );
+            if (method_exists($this->getClient(), 'getAttributeOptionsByResourceIdAndAttributeId')) {
+                // support for containerType
+                return new OptionCollection(
+                    $this->getClient()->getAttributeOptionsByResourceIdAndAttributeId(
+                        $this->_id(),
+                        $this->_reference($attributeId),
+                    ),
+                    $this->_name(),
+                    $this,
+                );
+            } else {
+                return new OptionCollection(
+                    $this->getClient()->getAttributeOptions(
+                        $this->_id(),
+                        $this->_reference($attributeId),
+                    ),
+                    $this->_name(),
+                    $this,
+                );
+            }
         }
     }
 
@@ -197,16 +210,18 @@ trait AttributeBehavior
     {
         $given = $type;
 
-        if (is_string($type) && in_array($type, EvalancheInterface::ATTRIBUTE_TYPES)) {
-            $type = array_search($type, EvalancheInterface::ATTRIBUTE_TYPES);
+        $attributeTypes = $this->clientAccessor == 'Pool'
+            ? EvalancheInterface::ATTRIBUTE_TYPES_POOL
+            : EvalancheInterface::ATTRIBUTE_TYPES;
+
+        if (is_string($type) && in_array($type, $attributeTypes)) {
+            $type = array_search($type, $attributeTypes);
         }
 
         if (!is_numeric($type)) {
             $trace = debug_backtrace();
             array_shift($trace);
             $trace = array_shift($trace);
-            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\AttributeBehavior::addAttribute
-            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\GroupBehavior::addAttribute
             trigger_error("Undefined attribue type \"{$given}\": {$trace['class']}::{$trace['function']}", E_USER_ERROR);
         }
 
