@@ -2,7 +2,7 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
-use Neubert\EvalancheInterface\Behaviors\AttributeGroupBehavior;
+use Neubert\EvalancheInterface\Behaviors\GroupBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
 
 /**
@@ -14,7 +14,7 @@ use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
  * @method Attribute addAttribute(string $name, string $label, $type, int $groupId)
  * @method AttributeGroup addGroup(string $label)
  * @method bool deleteGroup(int $groupId)
- * @see Neubert\EvalancheInterface\Behaviors\AttributeGroupBehavior
+ * @see Neubert\EvalancheInterface\Behaviors\GroupBehavior
  *
  * @method Resource get()
  * @method Resource getFolder()
@@ -23,7 +23,7 @@ use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
  */
 class ArticleTypeConnector extends Connector
 {
-    use AttributeGroupBehavior, ResourceBehavior;
+    use GroupBehavior, ResourceBehavior;
 
     /**
      * Client Accessor
