@@ -52,7 +52,7 @@ Evalanche::folder(1234)->getFolders()->each(function ($folder) {
 
 - PHP >= 7.3
     - php-soap
-- [Evalanche Soap API Connector](https://github.com/SC-Networks/evalanche-soap-api-connector/) >= 1.7 *(gets installed automatically if not included)*
+- [Evalanche Soap API Connector](https://github.com/SC-Networks/evalanche-soap-api-connector/) >= 1.7 *(automatically required via composer)*
 
 
 ## Feature Requests
