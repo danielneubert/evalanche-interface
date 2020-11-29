@@ -19,7 +19,7 @@ class Connector
         $this->meta = $meta;
     }
 
-    protected function _name() : string
+    protected function _name(): string
     {
         $name = explode('\\', static::class);
         $name = array_pop($name);
@@ -46,7 +46,12 @@ class Connector
         return $this->interface;
     }
 
-    protected function _reference(? int $default = null)
+    protected function getMeta(string $key)
+    {
+        return $this->meta[$key] ?? null;
+    }
+
+    protected function _reference(?int $default = null)
     {
         $value = $this->meta['reference'] ?? $default;
 
@@ -60,14 +65,14 @@ class Connector
         return $value;
     }
 
-    public function getClient(? string $name = null)
+    public function getClient(?string $name = null)
     {
         return is_null($name)
             ? $this->interface->getClient($this->clientAccessor)
             : $this->interface->getClient($name);
     }
 
-    public function getConnector(? string $name = null, array $meta = EvalancheConnector::CONNECTOR_DEFAULT)
+    public function getConnector(?string $name = null, array $meta = EvalancheInterface::CONNECTOR_DEFAULT)
     {
         return is_null($name)
             ? $this->interface->getConnector($this->clientAccessor, $meta)

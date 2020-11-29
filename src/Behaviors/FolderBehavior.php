@@ -47,7 +47,7 @@ trait FolderBehavior
      */
 
     // Documentation Missing
-    public function createArticle(string $name, int $articleType, array $content)
+    public function createArticle(string $name, int $articleType, array $content = [])
     {
         return new Resource($this->getClient('Article')->create($articleType, $name, $this->_id(), new HashMap($content)), 'Article', $this);
     }
@@ -65,7 +65,7 @@ trait FolderBehavior
     }
 
     // Documentation Missing
-    public function createContainer(string $name, int $containerType, array $content)
+    public function createContainer(string $name, int $containerType, array $content = [])
     {
         return new Resource($this->getClient('Container')->create($containerType, $name, $this->_id(), new HashMap($content)), 'Container', $this);
     }

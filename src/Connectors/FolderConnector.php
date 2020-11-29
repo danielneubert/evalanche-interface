@@ -52,20 +52,30 @@ class FolderConnector extends Connector
     protected $clientAccessor = 'Folder';
 
     // Documentation Missing
-    public function get() : Resource
+    public function get(): Resource
     {
         // support for inconsitent Folder API
         return new Resource($this->getClient()->get($this->_id()), 'Folder', $this);
     }
 
-    // Documentation Missing
-    public function moveTo(int $folderId) : Resource
+    /**
+     * Folders can't be moved. This method will trigger an error.
+     *
+     * @param  integer  $folderId
+     * @return void
+     */
+    public function moveTo(int $folderId)
     {
         trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::moveTo()", E_USER_ERROR);
     }
 
-    // Documentation Missing
-    public function copyTo(int $folderId) : Resource
+    /**
+     * Folders can't be copied. This method will trigger an error.
+     *
+     * @param  integer  $folderId
+     * @return void
+     */
+    public function copyTo(int $folderId)
     {
         trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::copyTo()", E_USER_ERROR);
     }
