@@ -23,7 +23,7 @@ class ProfileJobHandler
      *
      * @var int|null
      */
-    protected $id = null;
+    public $_id = null;
 
     /**
      * Job status.
@@ -40,9 +40,16 @@ class ProfileJobHandler
     protected $chunkSize = null;
 
     /**
-     * The instance of the EvalancheInterface.
+     * Chunks left.
      *
      * @var int|null
+     */
+    protected $chunksLeft = null;
+
+    /**
+     * The instance of the EvalancheInterface.
+     *
+     * @var EvalancheInterface|null
      */
     private $interface = null;
 
@@ -56,7 +63,7 @@ class ProfileJobHandler
         $this->interface = $interface;
 
         if (is_string($idOrJobHandle)) {
-            $this->id = $idOrJobHandle;
+            $this->_id = $idOrJobHandle;
             $this->update();
         } elseif ($idOrJobHandle instanceof JobHandle) {
             $this->update($idOrJobHandle);
@@ -66,13 +73,13 @@ class ProfileJobHandler
     }
 
     // Documentation Missing
-    public function update(? JobHandle $job = null)
+    public function update(?JobHandle $job = null)
     {
         if (is_null($job)) {
-            return $this->update($this->interface->getClient('Profile')->getJobInformationByJobId($this->id));
+            return $this->update($this->interface->getClient('Profile')->getJobInformationByJobId($this->_id));
         }
 
-        $this->id = $job->getId();
+        $this->_id = $job->getId();
         $this->status = $job->getStatus();
         $this->chunkSize = $job->getResultChunks();
     }
@@ -90,11 +97,17 @@ class ProfileJobHandler
     }
 
     // Documentation Missing
+    public function isLast()
+    {
+        return $this->chunksLeft === 0;
+    }
+
+    // Documentation Missing
     public function whenDone(float $rate = 1, int $timeout = 300)
     {
         $timeout += time();
         $rate = intval($rate / 1000000);
-        
+
         while (time() < $timeout) {
             if ($this->isDone()) {
                 break;
@@ -113,21 +126,70 @@ class ProfileJobHandler
     }
 
     // Documentation Missing
-    public function getChunk() : ProfileCollection
+    public function getChunk(): ProfileCollection
     {
-        return new ProfileCollection((array) $this->interface->getClient('Profile')->getResultByJobId($this->id)->getResult(), 'Profile', $this->interface->getConnector('Profile'));
+        $chunkResult = $this->interface->getClient('Profile')->getResultByJobId($this->_id);
+        $this->chunksLeft = $chunkResult->getChunksLeft();
+        return new ProfileCollection((array) $chunkResult->getResult(), 'Profile', $this->interface->getConnector('Profile'));
     }
 
     // Documentation Missing
-    public function getChunkPosition() : ? int
+    public function getChunks(): ProfileCollection
     {
-        $position = $this->interface->getClient('Profile')->getResultCursorByJobId($this->id);
+        $resultArray = [];
+
+        while (is_null($this->chunksLeft) || $this->chunksLeft > 0) {
+            $chunkResult = $this->interface->getClient('Profile')->getResultByJobId($this->_id);
+            $this->chunksLeft = $chunkResult->getChunksLeft();
+            $chunkResult = (array) $chunkResult->getResult();
+            $resultArray = [...$resultArray, ...$chunkResult];
+            var_dump('iterating');
+        }
+
+        return new ProfileCollection($resultArray, 'Profile', $this->interface->getConnector('Profile'));
+    }
+
+    // Documentation Missing
+    public function getChunkPosition(): ?int
+    {
+        $position = $this->interface->getClient('Profile')->getResultCursorByJobId($this->_id);
         return is_numeric($position) ? $position : null;
     }
 
     // Documentation Missing
-    public function setChunkPosition(int $position) : bool
+    public function setChunkPosition(int $position): bool
     {
-        return $this->interface->getClient('Profile')->setResultCursor($this->id, $position);
+        return $this->interface->getClient('Profile')->setResultCursor($this->_id, $position);
+    }
+
+
+    /**
+     * Direct access to the item properties.
+     *
+     * @param  string  $method
+     * @return mixed
+     */
+    public function __get(string $name)
+    {
+        if ($name == 'id') {
+            return $this->_id;
+        }
+
+        trigger_error("Undefined property: Neubert\EvalancheInterface\Collections\CollectionItem::{$name}", E_USER_NOTICE);
+    }
+
+    /**
+     * Triggers error when an item property should be overwritten.
+     *
+     * @param  string  $method
+     * @return void
+     */
+    public function __set(string $name, $value)
+    {
+        if ($this->item == 'id') {
+            trigger_error("Cannot write to property Neubert\EvalancheInterface\Collections\CollectionItem::{$name}", E_USER_ERROR);
+        }
+
+        trigger_error("Undefined property: Neubert\EvalancheInterface\Collections\CollectionItem::{$name}", E_USER_NOTICE);
     }
 }
