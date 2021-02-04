@@ -15,7 +15,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr>
     <td><strong>Supported Clients</strong></td>
     <td align="center"> 67</td>
-    <td align="center">148</td>
+    <td align="center">156</td>
     <td align="center">249</td>
 </tr><tr>
     <td><strong>Not Supported Clients &nbsp; &nbsp; &nbsp; &nbsp;</strong></td>
@@ -89,7 +89,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
     <td align="center">🔜</td>
     <td><a href="#mailing"><strong>Mailing</strong></a></td>
     <td align="center"> 0</td>
-    <td align="center">19</td>
+    <td align="center">27</td>
     <td align="center">48</td>
 </tr>
 <tr>
@@ -385,12 +385,20 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |🔜|**createDraft()**                               |*Planned*
 |🔜|**delete()**                                    |*Planned*
 |🔜|**getArticlesByMailingId()**                    |*Planned*
+|🔜|**getBounceProfiles()**                         |*Planned*
 |🔜|**getByFolderId()**                             |*Planned*
 |🔜|**getById()**                                   |*Planned*
+|🔜|**getClickProfiles()**                          |*Planned*
+|🔜|**getClicks()**                                 |*Planned*
 |🔜|**getConfiguration()**                          |*Planned*
 |🔜|**getDetailsById()**                            |*Planned*
+|🔜|**getImpressionProfiles()**                     |*Planned*
+|🔜|**getImpressions()**                            |*Planned*
+|🔜|**getRecipientsProfiles()**                     |*Planned*
+|🔜|**getStatisticsByMailingId()**                  |*Planned*
 |🔜|**getStatus()**                                 |*Planned*
 |🔜|**getSubjectsByMailingId()**                    |*Planned*
+|🔜|**getUnsubscriptionProfiles()**                 |*Planned*
 |🔜|**move()**                                      |*Planned*
 |🔜|**removeAllArticles()**                         |*Planned*
 |🔜|**removeArticles()**                            |*Planned*
@@ -403,30 +411,22 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |❌|**~~getAllLinkClickProfiles()~~**               |*Not supported*
 |❌|**~~getArticleImpressionProfiles()~~**          |*Not supported*
 |❌|**~~getArticleStatistics()~~**                  |*Not supported*
-|❌|**~~getBounceProfiles()~~**                     |*Not supported*
 |❌|**~~getByExternalId()~~**                       |*Not supported*
 |❌|**~~getByTypeId()~~**                           |*Not supported*
-|❌|**~~getClickProfiles()~~**                      |*Not supported*
-|❌|**~~getClicks()~~**                             |*Not supported*
 |❌|**~~getClientStatisticById()~~**                |*Not supported*
 |❌|**~~getDefaultFolderByMandatorId()~~**          |*Not supported*
 |❌|**~~getHardbounceProfiles()~~**                 |*Not supported*
-|❌|**~~getImpressionProfiles()~~**                 |*Not supported*
-|❌|**~~getImpressions()~~**                        |*Not supported*
 |❌|**~~getJobInformationByJobId()~~**              |*Not supported*
 |❌|**~~getListByMandatorId()~~**                   |*Not supported*
 |❌|**~~getLinkClickProfiles()~~**                  |*Not supported*
 |❌|**~~getMultipleClickProfiles()~~**              |*Not supported*
 |❌|**~~getMultipleImpressionProfiles()~~**         |*Not supported*
-|❌|**~~getRecipientsProfiles()~~**                 |*Not supported*
 |❌|**~~getResultCursorByJobId()~~**                |*Not supported*
 |❌|**~~getResults()~~**                            |*Not supported*
 |❌|**~~getSendableDrafts()~~**                     |*Not supported*
 |❌|**~~getSendableDraftsByMandatorId()~~**         |*Not supported*
 |❌|**~~getSoftbounceProfiles()~~**                 |*Not supported*
-|❌|**~~getStatisticsByMailingId()~~**              |*Not supported*
 |❌|**~~getTypeIds()~~**                            |*Not supported*
-|❌|**~~getUnsubscriptionProfiles()~~**             |*Not supported*
 |❌|**~~setResultCursor()~~**                       |*Not supported*
 
 [↑ **Get back to the client overview**](#client-overview)
