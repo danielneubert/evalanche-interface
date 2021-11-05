@@ -3,6 +3,7 @@
 namespace Neubert\EvalancheInterface\Connectors;
 
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
+use Neubert\EvalancheInterface\Behaviors\DetailsBehavior;
 
 /**
  * @method Resource get()
@@ -12,7 +13,7 @@ use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
  */
 class ArticleConnector extends Connector
 {
-    use ResourceBehavior;
+    use ResourceBehavior,DetailsBehavior;
 
     /**
      * Client Accessor
