@@ -157,7 +157,7 @@ trait FolderBehavior
     }
 
     // Documentation Missing
-    public function getContainers() : ResourceCollection
+    public function getContainer() : ResourceCollection
     {
         return new ResourceCollection($this->getClient('Container')->getByFolderId($this->_id()), 'Container', $this);
     }

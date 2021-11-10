@@ -9,14 +9,11 @@ use Neubert\EvalancheInterface\EvalancheInterface;
  *
  * @method static ArticleConnector article(int $reference)
  * @method static ArticleTypeConnector articleType(int $reference)
- * @method static ContainerConnector container(int $reference)
  * @method static ContainerTypeConnector containerType(int $reference)
  * @method static FolderConnector folder(? int $reference = null)
  * @method static PoolConnector pool(? int $reference = null)
- * @method static ProfileConnector profile(int $reference = null)
- * @method static TargetGroupConnector targetgroup(string $reference)
  * @method static ProfileJobHandler job(string $reference)
- * @method static void default($keyOrArray, ? int $value = null)
+ * @method static void setDefault($keyOrArray, ? int $value = null)
  * @method static mixed getClient(string $name)
  * @method static mixed getConnector(string $name, array $meta = self::CONNECTOR_DEFAULT)
  * @see Neubert\EvalancheInterface\EvalancheInterface

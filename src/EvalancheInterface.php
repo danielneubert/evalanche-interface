@@ -3,11 +3,13 @@
 namespace Neubert\EvalancheInterface;
 
 use Scn\EvalancheSoapApiConnector\EvalancheConnection;
+
 use Neubert\EvalancheInterface\Connectors\ArticleConnector;
 use Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
 use Neubert\EvalancheInterface\Connectors\FolderConnector;
+use Neubert\EvalancheInterface\Connectors\MailingConnector;
 use Neubert\EvalancheInterface\Connectors\PoolConnector;
 use Neubert\EvalancheInterface\Connectors\ProfileConnector;
 use Neubert\EvalancheInterface\Connectors\TargetGroupConnector;
@@ -41,6 +43,7 @@ class EvalancheInterface
         'Container'         => ContainerConnector::class,
         'ContainerType'     => ContainerTypeConnector::class,
         'Folder'            => FolderConnector::class,
+        'Mailing'           => MailingConnector::class,
         'Pool'              => PoolConnector::class,
         'Profile'           => ProfileConnector::class,
         'TargetGroup'       => TargetGroupConnector::class,
@@ -131,6 +134,19 @@ class EvalancheInterface
     {
         return $this->getConnector('Folder', self::newMeta([
             'id' => $reference ?? ($this->defaults['folder'] ?? null),
+        ]));
+    }
+
+    /**
+     * Provides the MailingConnector
+     *
+     * @param  integer  $reference
+     * @return MailingConnector
+     */
+    public function mailing(?int $reference = null): MailingConnector
+    {
+        return $this->getConnector('Mailing', self::newMeta([
+            'id' => $reference,
         ]));
     }
 

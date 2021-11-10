@@ -20,4 +20,17 @@ class Profile extends CollectionItem
             $item
         );
     }
+
+    /**
+     * var_dump()
+     * Streamlines the contents for var_dump().
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return array_filter($this->toArray(), function ($value, $key) {
+            return $key != 'id';
+        }, ARRAY_FILTER_USE_BOTH);
+    }
 }

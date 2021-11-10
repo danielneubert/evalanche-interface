@@ -8,7 +8,7 @@ use Neubert\EvalancheInterface\EvalancheInterface;
 class Attribute extends CollectionItem
 {
     // Documentation Missing
-    protected function createItem(object $item, int $id) : object
+    protected function createItem(object $item, int $id): object
     {
         return (object) [
             '_id'        => $id,
@@ -22,7 +22,7 @@ class Attribute extends CollectionItem
             'meta'       => (object) [
                 'url'        => null,
                 'isRequired' => $this->getProperty('mandatory', $item),
-                'canOptions' => $this->getProperty('allowOptions', $item),
+                'canOptions' => $this->getProperty('allowOptions', $item) ?? (method_exists($item, 'hasOptions') ? $item->hasOptions() : null),
                 'info'       => $this->getProperty('helpText', $item),
                 'help'       => $this->getProperty('inputHelpText', $item),
             ],
