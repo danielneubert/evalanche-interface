@@ -3,6 +3,8 @@
 namespace Neubert\EvalancheInterface\Connectors;
 
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
+use Neubert\EvalancheInterface\Collections\Mailings\MailingCollection;
+use Neubert\EvalancheInterface\Collections\Resources\ResourceCollection;
 
 /**
  * @method Resource get()
@@ -45,5 +47,30 @@ class MailingConnector extends Connector
             $this->_id(),
             $title
         );
+    }
+
+    // Documentation Missing
+    public function get()
+    {
+        return $this->getClient()->getDetailsById($this->_id());
+    }
+
+    // Documentation Missing
+    public function getPlanned(?int $mandator = null)
+    {
+        $mandator = $this->getDefaultValue('mandator', $mandator);
+
+        if (is_null($mandator)) {
+            // ! ERROR
+            throw new \Exception("mandator fehlend");
+        }
+
+        return new MailingCollection($this->getClient()->getByTypeId(68, $mandator), 'Mailing', $this);
+    }
+
+    // Documentation Missing
+    public function getArticles()
+    {
+        return new ResourceCollection($this->getClient()->getArticlesByMailingId($this->_id()), 'Article', $this);
     }
 }

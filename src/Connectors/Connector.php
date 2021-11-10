@@ -65,6 +65,11 @@ class Connector
         return $value;
     }
 
+    public function getDefaultValue(string $key, ?int $fallbackValue = null)
+    {
+        return $this->interface->getDefaultValue($key, $fallbackValue);
+    }
+
     public function getClient(?string $name = null)
     {
         return is_null($name)
@@ -72,7 +77,7 @@ class Connector
             : $this->interface->getClient($name);
     }
 
-    public function getConnector(?string $name = null, array $meta = EvalancheInterface::CONNECTOR_DEFAULT)
+    public function getConnector(?string $name = null, array $meta = EvalancheConnector::CONNECTOR_DEFAULT)
     {
         return is_null($name)
             ? $this->interface->getConnector($this->clientAccessor, $meta)

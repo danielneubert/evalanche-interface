@@ -64,7 +64,7 @@ class FolderConnector extends Connector
      * @param  integer  $folderId
      * @return void
      */
-    public function moveTo(int $folderId)
+    public function moveTo(int $folderId): Resource
     {
         trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::moveTo()", E_USER_ERROR);
     }
@@ -75,7 +75,7 @@ class FolderConnector extends Connector
      * @param  integer  $folderId
      * @return void
      */
-    public function copyTo(int $folderId)
+    public function copyTo(int $folderId): Resource
     {
         trigger_error("Call to undefined method Neubert\EvalancheInterface\Connector\FolderConnector::copyTo()", E_USER_ERROR);
     }

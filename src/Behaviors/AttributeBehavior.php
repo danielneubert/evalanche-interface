@@ -31,7 +31,7 @@ trait AttributeBehavior
      *
      * @return AttributeCollection
      */
-    public function getAttributes() : AttributeCollection
+    public function getAttributes(): AttributeCollection
     {
         if (method_exists($this->getClient(), 'getAttributesByResourceId')) {
             // support inconsistent ContainerType API
@@ -54,7 +54,7 @@ trait AttributeBehavior
      * @param  string|integer  $type
      * @return Attribute
      */
-    public function addAttribute(string $name, string $label, $type) : Attribute
+    public function addAttribute(string $name, string $label, $type): Attribute
     {
         return new Attribute(
             $this->getClient()->addAttribute(
@@ -74,7 +74,7 @@ trait AttributeBehavior
      * @param  integer|null  $attributeId
      * @return boolean
      */
-    public function deleteAttribute(? int $attributeId = null) : bool
+    public function deleteAttribute(?int $attributeId = null): bool
     {
         return $this->getClient()->removeAttribute(
             $this->_id(),
@@ -96,11 +96,12 @@ trait AttributeBehavior
      * @param  integer|null  $attributeId
      * @return void
      */
-    public function getOptions(? int $attributeId = null) : OptionCollection
+    public function getOptions(?int $attributeId = null): OptionCollection
     {
-        if ($this->clientAccessor == 'Pool') {
+        if (get_class($this->getClient()) == PoolClient::class) {
             if (is_null($this->getMeta('resultCache'))) {
-                trigger_error("Attribute options can't be accessed without fetching all attributes. (getAttributes)", E_USER_ERROR);
+                // throw error
+                return new OptionCollection([], $this->_name(), $this);
             }
 
             return new OptionCollection(
@@ -139,7 +140,7 @@ trait AttributeBehavior
      * @param  integer|null  $attributeId
      * @return void
      */
-    public function addOption(string $label, ? int $attributeId = null) : Option
+    public function addOption(string $label, ?int $attributeId = null): Option
     {
         if (method_exists($this->getClient(), 'createAttributeOption')) {
             // support for articleType
@@ -154,12 +155,12 @@ trait AttributeBehavior
             );
         } else {
             return new Option(
-                $this->getClient()->addAttributeOption(
+                $this->getClient()->addAttributeOptions(
                     $this->_id(),
                     $this->_reference($attributeId),
                     $this->clientAccessor == 'Pool'
                         ? [$label]
-                    : $label,
+                        : $label,
                 ),
                 $this->_name(),
                 $this,
@@ -174,7 +175,7 @@ trait AttributeBehavior
      * @param  integer|null  $attributeId
      * @return boolean
      */
-    public function deleteOption(int $optionId, ? int $attributeId = null) : bool
+    public function deleteOption(int $optionId, ?int $attributeId = null): bool
     {
         if (method_exists($this->getClient(), 'deleteAttributeOption')) {
             // support for pool
@@ -206,7 +207,7 @@ trait AttributeBehavior
      * @param  integer|string  $type
      * @return integer
      */
-    protected function _resolveType($type) : int
+    protected function _resolveType($type): int
     {
         $given = $type;
 
@@ -222,6 +223,8 @@ trait AttributeBehavior
             $trace = debug_backtrace();
             array_shift($trace);
             $trace = array_shift($trace);
+            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\AttributeBehavior::addAttribute
+            // Undefined attribue type \"{$given}\": Neubert\EvalancheInterface\Behaviors\GroupBehavior::addAttribute
             trigger_error("Undefined attribue type \"{$given}\": {$trace['class']}::{$trace['function']}", E_USER_ERROR);
         }
 

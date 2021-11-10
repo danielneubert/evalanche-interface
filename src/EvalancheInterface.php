@@ -9,8 +9,9 @@ use Neubert\EvalancheInterface\Connectors\ArticleTypeConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerConnector;
 use Neubert\EvalancheInterface\Connectors\ContainerTypeConnector;
 use Neubert\EvalancheInterface\Connectors\FolderConnector;
-use Neubert\EvalancheInterface\Connectors\MailingConnector;
 use Neubert\EvalancheInterface\Connectors\PoolConnector;
+use Neubert\EvalancheInterface\Connectors\MailingConnector;
+use Neubert\EvalancheInterface\Connectors\MandatorConnector;
 use Neubert\EvalancheInterface\Connectors\ProfileConnector;
 use Neubert\EvalancheInterface\Connectors\TargetGroupConnector;
 use Neubert\EvalancheInterface\Support\ProfileJobHandler;
@@ -44,6 +45,7 @@ class EvalancheInterface
         'ContainerType'     => ContainerTypeConnector::class,
         'Folder'            => FolderConnector::class,
         'Mailing'           => MailingConnector::class,
+        'Mandator'          => MandatorConnector::class,
         'Pool'              => PoolConnector::class,
         'Profile'           => ProfileConnector::class,
         'TargetGroup'       => TargetGroupConnector::class,
@@ -57,6 +59,7 @@ class EvalancheInterface
     protected $defaults = [
         'pool' => null,
         'folder' => null,
+        'mandator' => null,
     ];
 
     /**
@@ -154,6 +157,19 @@ class EvalancheInterface
      * Provides the PoolConnector
      *
      * @param  integer  $reference
+     * @return MandatorConnector
+     */
+    public function mandator(?int $reference = null): MandatorConnector
+    {
+        return $this->getConnector('Mandator', self::newMeta([
+            'id' => $reference ?? ($this->defaults['folder'] ?? null),
+        ]));
+    }
+
+    /**
+     * Provides the PoolConnector
+     *
+     * @param  integer  $reference
      * @return PoolConnector
      */
     public function pool(?int $reference = null): PoolConnector
@@ -229,6 +245,17 @@ class EvalancheInterface
      * Internal Methods
      * ------------------------------------------------------------
      */
+
+    /**
+     * Returns a specific default value.
+     *
+     * @param  string  $name
+     * @return mixed
+     */
+    public function getDefaultValue(string $key, ?int $fallbackValue = null)
+    {
+        return isset($this->defaults[$key]) ? ($this->defaults[$key] ?? $fallbackValue) : $fallbackValue;
+    }
 
     /**
      * Returns a specific EvalancheConnection client.

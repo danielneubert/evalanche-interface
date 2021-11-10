@@ -7,7 +7,7 @@ use Neubert\EvalancheInterface\Collections\CollectionItem;
 class Option extends CollectionItem
 {
     // Documentation Missing
-    protected function createItem(object $item, int $id) : object
+    protected function createItem(object $item, int $id): object
     {
         return (object) [
             '_id'        => $id,
@@ -17,7 +17,7 @@ class Option extends CollectionItem
             'label'      => $this->getProperty('label', $item) ?? $this->getProperty('value', $item),
             'type'       => null,
             'group'      => null,
-            'meta'       => [
+            'meta'       => (object) [
                 'url'    => null,
             ],
         ];
