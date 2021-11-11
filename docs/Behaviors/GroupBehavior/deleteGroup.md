@@ -4,7 +4,7 @@ Add an attribute to a resource.
 
 ## Namespace
 
-[**`Neubert \ EvalancheInterface`**](#)`\`[**`Behaviors`**](#)`\`[**`GroupBehavior`**](#)`::`[**`deleteGroup()`**](#)
+[**`Neubert \ EvalancheInterface`**](../../index.md)`\`[**`Behaviors`**](../../index.md#behaviors)`\`[**`GroupBehavior`**](../GroupBehavior.md)`::`**`deleteGroup()`**
 
 ## Definition
 
@@ -37,5 +37,5 @@ Group was removed successfully.
 ```
 
 ### Used Methods and Properties
-- [**`Behaviors\GroupBehavior::addGroup()`**](#)
+- [**`Behaviors\GroupBehavior::addGroup()`**](addGroup.md)
 - [**`Collections\Groups\Group::$label`**](#)

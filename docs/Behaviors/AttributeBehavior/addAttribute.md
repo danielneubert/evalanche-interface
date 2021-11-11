@@ -4,7 +4,7 @@ Add an attribute to a resource.
 
 ## Namespace
 
-[**`Neubert \ EvalancheInterface`**](#)`\`[**`Behaviors`**](#)`\`[**`AttributeBehavior`**](#)`::`[**`addAttribute()`**](#)
+[**`Neubert \ EvalancheInterface`**](../../index.md)`\`[**`Behaviors`**](../../index.md#behaviors)`\`[**`AttributeBehavior`**](../AttributeBehavior.md)`::`**`addAttribute()`**
 
 ## Definition
 
@@ -33,4 +33,4 @@ Created Attribute 'Example'.
 - [**`Collections\Attributes\Attribute::$label`**](#)
 
 ## See also
-- [**`Behaviors\GroupBehavior::addAttribute()`**](#)
+- [**`Behaviors\GroupBehavior::addAttribute()`**](../GroupBehavior/addAttribute.md)

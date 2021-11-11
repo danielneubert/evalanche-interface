@@ -4,7 +4,7 @@ Adds support for attribute groups.
 
 ## Namespace
 
-[**`Neubert \ EvalancheInterface`**](#)`\`[**`Behaviors`**](#)`\`[**`GroupBehavior`**](#)
+[**`Neubert \ EvalancheInterface`**](../index.md)`\`[**`Behaviors`**](../index.md#behaviors)`\`**`GroupBehavior`**
 
 ## Properties
 
@@ -12,14 +12,14 @@ Adds support for attribute groups.
 
 ## Methods
 
-- [**`addAttributes()`**](#)
-- [**`addGroup()`**](#)
-- [**`getGroups()`**](#)
-- [**`deleteGroup()`**](#)
+- [**`addAttributes()`**](GroupBehavior/addAttribute.md)
+- [**`addGroup()`**](GroupBehavior/addGroup.md)
+- [**`getGroups()`**](GroupBehavior/getGroups.md)
+- [**`deleteGroup()`**](GroupBehavior/deleteGroup.md)
 
 ## Implements
 
-- [**`Behaviors\AttributeBehavior`**](#)
+- [**`Behaviors\AttributeBehavior`**](AttributeBehavior.md)
 
 ## Used By
 

@@ -4,7 +4,7 @@ Receive all groups of a given resource.
 
 ## Namespace
 
-[**`Neubert \ EvalancheInterface`**](#)`\`[**`Behaviors`**](#)`\`[**`GroupBehavior`**](#)`::`[**`getGroups()`**](#)
+[**`Neubert \ EvalancheInterface`**](../../index.md)`\`[**`Behaviors`**](../../index.md#behaviors)`\`[**`GroupBehavior`**](../GroupBehavior.md)`::`**`getGroups()`**
 
 ## Definition
 
@@ -35,7 +35,7 @@ Resource has Group 'Example'.
 ```
 
 ### Used Methods and Properties
-- [**`Behaviors\GroupBehavior::addGroup()`**](#)
+- [**`Behaviors\GroupBehavior::addGroup()`**](addGroup.md)
 - [**`Collections\Attributes\Group::$label`**](#)
 - [**`Collections\Collection::each()`**](#)
 
