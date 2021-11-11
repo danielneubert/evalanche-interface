@@ -34,7 +34,7 @@ trait GroupBehavior
      * @param  integer|null    $groupId
      * @return Attribute
      */
-    public function addAttribute(string $name, string $label, $type, ? int $groupId = null) : Attribute
+    public function addAttribute(string $name, string $label, $type, ?int $groupId = null): Attribute
     {
         return new Attribute(
             $this->getClient()->addAttribute(
@@ -54,12 +54,12 @@ trait GroupBehavior
      *
      * @return GroupCollection
      */
-    public function getGroups() : GroupCollection
+    public function getGroups(): GroupCollection
     {
         // support for inconsitent ContainerType API
         return new GroupCollection(method_exists($this->getClient(), 'getAttributeGroupsByResourceId')
-                ? $this->getClient()->getAttributeGroupsByResourceId($this->_id())
-                : $this->getClient()->getAttributeGroups($this->_id()), $this->_name(), $this);
+            ? $this->getClient()->getAttributeGroupsByResourceId($this->_id())
+            : $this->getClient()->getAttributeGroups($this->_id()), $this->_name(), $this);
     }
 
     /**
@@ -68,7 +68,7 @@ trait GroupBehavior
      * @param  string  $label
      * @return Group
      */
-    public function addGroup(string $label) : Group
+    public function addGroup(string $label): Group
     {
         return new Group($this->getClient()->addAttributeGroup($this->_id(), $label), $this->_name(), $this);
     }
@@ -79,7 +79,7 @@ trait GroupBehavior
      * @param  integer|null  $groupId
      * @return boolean
      */
-    public function deleteGroup(? int $groupId = null) : bool
+    public function deleteGroup(?int $groupId = null): bool
     {
         return $this->getClient()->removeAttributeGroup(
             $this->_id(),
