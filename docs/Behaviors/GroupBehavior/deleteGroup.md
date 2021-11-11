@@ -1,6 +1,6 @@
 # `GroupBehavior::deleteGroup()`
 
-Add an attribute to a resource.
+Delete an attribute group.
 
 ## Namespace
 
@@ -38,4 +38,4 @@ Group was removed successfully.
 
 ### Used Methods and Properties
 - [**`Behaviors\GroupBehavior::addGroup()`**](addGroup.md)
-- [**`Collections\Groups\Group::$label`**](#)
+- [**`Collections\Attributes\Group::$label`**](#)

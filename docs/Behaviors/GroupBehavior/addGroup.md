@@ -1,6 +1,6 @@
 # `GroupBehavior::addGroup()`
 
-Add an attribute to a resource.
+Add an attribute group to a resource.
 
 ## Namespace
 
@@ -35,5 +35,14 @@ Created Attribute 'Example'.
 
 ### Used Methods and Properties
 - [**`Behaviors\GroupBehavior::addAttribute()`**](addAttribute.md)
-- [**`Collections\Groups\Group::$label`**](#)
+- [**`Collections\Attributes\Group::$label`**](#)
 - [**`Collections\Attributes\Attribute::$label`**](#)
+
+### Used Methods and Properties
+- [**`Behaviors\GroupBehavior::addGroup()`**](addGroup.md)
+- [**`Collections\Attributes\Group::$label`**](#)
+- [**`Collections\Collection::each()`**](#)
+
+## See also
+- [**`Collections\Attributes\Group`**](#)
+- [**`Collections\Attributes\GroupCollection`**](#)

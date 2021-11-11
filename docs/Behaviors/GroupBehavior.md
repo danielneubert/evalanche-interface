@@ -6,10 +6,6 @@ Adds support for attribute groups.
 
 [**`Neubert \ EvalancheInterface`**](../index.md)`\`[**`Behaviors`**](../index.md#behaviors)`\`**`GroupBehavior`**
 
-## Properties
-
-*No public properties available.*
-
 ## Methods
 
 - [**`addAttributes()`**](GroupBehavior/addAttribute.md)

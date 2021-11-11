@@ -20,7 +20,7 @@ This interface is a consistent wrapper arround the SOAP API of Evalanche. It is 
 - [**Installation**](#installation)
 - **~~Laravel Integration~~** *Planned*
 - **~~Basic Usage~~** *Planned*
-- **~~Documentation~~** *Planned*
+- [**Documenation**](docs/index.md)
 
 
 ## Installation
