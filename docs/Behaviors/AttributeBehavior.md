@@ -11,9 +11,9 @@ Adds support for attributes.
 - [**`addAttributes()`**](AttributeBehavior/addAttribute.md)
 - [**`getAttributes()`**](AttributeBehavior/getAttributes.md)
 - [**`deleteAttribute()`**](AttributeBehavior/deleteAttribute.md)
-- ~~**`addOption()`**~~ *coming soon*
-- ~~**`getOptions()`**~~ *coming soon*
-- ~~**`deleteOption()`**~~ *coming soon*
+- [**`addOption()`**](AttributeBehavior/addOption.md)
+- [**`getOptions()`**](AttributeBehavior/getOptions.md)
+- [**`deleteOption()`**](AttributeBehavior/deleteOption.md)
 
 ## Implemented By
 

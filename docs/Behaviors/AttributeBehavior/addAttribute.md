@@ -12,7 +12,7 @@ Add an attribute to a resource.
 addAttribute(string $name, string $label, $type): Attribute
 ```
 
-Returns the created Attribute.
+Returns the created [**Attribute**](#).
 
 ## Example
 

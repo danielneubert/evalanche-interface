@@ -32,8 +32,8 @@ if ($attribute->deleteAttribute()) {
 The above example will output something similar to:
 
 ```txt
-Created Group 'Example'.
-Group was removed successfully.
+Created Attribute 'Example'.
+Attribute was removed successfully.
 ```
 
 ### Used Methods and Properties
