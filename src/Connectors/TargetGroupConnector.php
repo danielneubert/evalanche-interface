@@ -2,16 +2,24 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
+use Neubert\EvalancheInterface\Behaviors\DetailsBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
-use Neubert\EvalancheInterface\Collections\Profiles\Profile;
 use Neubert\EvalancheInterface\Support\ProfileJobHandler;
-use Neubert\EvalancheInterface\Support\HashMap;
 
 /**
+ * @method ProfileJobHandler getProfiles()
+ *
+ * @method mixed getContent()
+ * @see Neubert\EvalancheInterface\Behaviors\DetailsBehavior
+ *
+ * @method Resource get()
+ * @method Resource getFolder()
+ * @method bool delete()
+ * @see Neubert\EvalancheInterface\Behaviors\ResourceBehavior
  */
 class TargetGroupConnector extends Connector
 {
-    use ResourceBehavior;
+    use DetailsBehavior, ResourceBehavior;
 
     /**
      * Client Accessor
@@ -19,7 +27,6 @@ class TargetGroupConnector extends Connector
      * @var string
      */
     protected $clientAccessor = 'TargetGroup';
-
 
     // Documentation Missing
     public function getProfiles(array $attributeNames)

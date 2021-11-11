@@ -2,10 +2,13 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
-use Neubert\EvalancheInterface\Support\HashMap;
+use Neubert\EvalancheInterface\Behaviors\DetailsBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
 
 /**
+ * @method mixed getContent()
+ * @see Neubert\EvalancheInterface\Behaviors\DetailsBehavior
+ *
  * @method Resource get()
  * @method Resource getFolder()
  * @method bool delete()
@@ -13,7 +16,7 @@ use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
  */
 class ContainerConnector extends Connector
 {
-    use ResourceBehavior;
+    use DetailsBehavior, ResourceBehavior;
 
     /**
      * Client Accessor
@@ -21,14 +24,4 @@ class ContainerConnector extends Connector
      * @var string
      */
     protected $clientAccessor = 'Container';
-
-    // ! Documentation Missing
-    public function getContent(?string $field = null)
-    {
-        $field = is_string($field) ? strtoupper($field) : null;
-        $response = HashMap::decompose($this->getClient()->getDetailById($this->_id()));
-        return !is_null($field)
-            ? (isset($response[strtoupper($field)]) ? $response[strtoupper($field)] : null)
-            : $response;
-    }
 }

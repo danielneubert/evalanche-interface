@@ -2,11 +2,15 @@
 
 namespace Neubert\EvalancheInterface\Connectors;
 
+use Neubert\EvalancheInterface\Behaviors\DetailsBehavior;
 use Neubert\EvalancheInterface\Behaviors\ResourceBehavior;
 use Neubert\EvalancheInterface\Collections\Mailings\MailingCollection;
 use Neubert\EvalancheInterface\Collections\Resources\ResourceCollection;
 
 /**
+ * @method mixed getContent()
+ * @see Neubert\EvalancheInterface\Behaviors\DetailsBehavior
+ *
  * @method Resource get()
  * @method Resource getFolder()
  * @method bool delete()
@@ -14,7 +18,7 @@ use Neubert\EvalancheInterface\Collections\Resources\ResourceCollection;
  */
 class MailingConnector extends Connector
 {
-    use ResourceBehavior;
+    use DetailsBehavior, ResourceBehavior;
 
     /**
      * Client Accessor
@@ -50,12 +54,6 @@ class MailingConnector extends Connector
     }
 
     // Documentation Missing
-    public function get()
-    {
-        return $this->getClient()->getDetailsById($this->_id());
-    }
-
-    // Documentation Missing
     public function getPlanned(?int $mandator = null)
     {
         $mandator = $this->getDefaultValue('mandator', $mandator);
@@ -68,8 +66,12 @@ class MailingConnector extends Connector
         return new MailingCollection($this->getClient()->getByTypeId(68, $mandator), 'Mailing', $this);
     }
 
-    // Documentation Missing
-    public function getArticles()
+    /**
+     * Fetches all articles of a given mailing.
+     *
+     * @return ResourceCollection
+     */
+    public function getArticles(): ResourceCollection
     {
         return new ResourceCollection($this->getClient()->getArticlesByMailingId($this->_id()), 'Article', $this);
     }
