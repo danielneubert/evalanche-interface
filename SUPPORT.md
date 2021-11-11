@@ -14,7 +14,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr><th>Category</th><th align="center">✅</th><th align="center">🔜</th><th align="center">∑</th></tr>
 <tr>
     <td><strong>Supported Clients</strong></td>
-    <td align="center"> 67</td>
+    <td align="center"> 88</td>
     <td align="center">156</td>
     <td align="center">249</td>
 </tr><tr>
@@ -32,7 +32,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr>
     <td align="center">🔜</td>
     <td><a href="#article"><strong>Article</strong></a></td>
-    <td align="center"> 6</td>
+    <td align="center"> 7</td>
     <td align="center"> 8</td>
     <td align="center">13</td>
 </tr>
@@ -53,7 +53,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr>
     <td align="center">🔜</td>
     <td><a href="#container"><strong>Container</strong></a></td>
-    <td align="center"> 6</td>
+    <td align="center"> 7</td>
     <td align="center"> 8</td>
     <td align="center">13</td>
 </tr>
@@ -88,7 +88,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr>
     <td align="center">🔜</td>
     <td><a href="#mailing"><strong>Mailing</strong></a></td>
-    <td align="center"> 0</td>
+    <td align="center">10</td>
     <td align="center">27</td>
     <td align="center">48</td>
 </tr>
@@ -109,14 +109,14 @@ If a method is missing out for you, feel free to open up a [feature request issu
 <tr>
     <td align="center">🔜</td>
     <td><a href="#profile"><strong>Profile</strong></a></td>
-    <td align="center">11</td>
+    <td align="center">14</td>
     <td align="center">25</td>
     <td align="center">37</td>
 </tr>
 <tr>
     <td align="center">🔜</td>
     <td><a href="#targetgroup"><strong>Targetgroup</strong></a></td>
-    <td align="center"> 0</td>
+    <td align="center"> 6</td>
     <td align="center"> 7</td>
     <td align="center">12</td>
 </tr>
@@ -212,7 +212,7 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |✅|**delete()**                            |`article()->delete()`
 |✅|**copy()**                              |`article()->copyTo()`
 |✅|**move()**                              |`article()->moveTo()`
-|🔜|**getDetailById()**                     |*Planned*
+|✅|**getDetailById()**                     |`article()->getDetails()`
 |🔜|**update()**                            |*Planned*
 |❌|**~~getListByMandatorId()~~**           |*Not supported*
 |❌|**~~getByTypeId()~~**                   |*Not supported*
@@ -279,14 +279,14 @@ If a method is missing out for you, feel free to open up a [feature request issu
 
 |Status|Method|Details|
 |:-:|-|-|
-|✅|**~~create()~~**                        |`folder()->createContainer()`
-|✅|**~~getByFolderId()~~**                 |`folder()->getContainers()`
-|✅|**~~copy()~~**                          |`container()->copyTo()`
-|✅|**~~delete()~~**                        |`container()->delete()`
-|✅|**~~getById()~~**                       |`container()->get()`
-|✅|**~~move()~~**                          |`container()->moveTo()`
-|🔜|**~~getDetailById()~~**                 |*Planned*
-|🔜|**~~update()~~**                        |*Planned*
+|✅|**create()**                        |`folder()->createContainer()`
+|✅|**getByFolderId()**                 |`folder()->getContainers()`
+|✅|**copy()**                          |`container()->copyTo()`
+|✅|**delete()**                        |`container()->delete()`
+|✅|**getById()**                       |`container()->get()`
+|✅|**move()**                          |`container()->moveTo()`
+|✅|**getDetailById()**                 |`container()->getDetails()`
+|🔜|**update()**                        |*Planned*
 |❌|**~~getListByMandatorId()~~**           |*Not supported*
 |❌|**~~getByTypeId()~~**                   |*Not supported*
 |❌|**~~getDefaultFolderByMandatorId()~~**  |*Not supported*
@@ -380,18 +380,21 @@ If a method is missing out for you, feel free to open up a [feature request issu
 
 |Status|Method|Details|
 |:-:|-|-|
+|✅|**copy()**                                      |`mailing()->copyTo()`
+|✅|**delete()**                                    |`mailing()->delete()`
+|✅|**getArticlesByMailingId()**                    |`mailing()->getArticles()`
+|✅|**getByFolderId()**                             |`folder()->getMailings()`
+|✅|**getById()**                                   |`mailing()->get()`
+|✅|**getDetailsById()**                            |`mailing()->getDetails()`
+|✅|**move()**                                      |`mailing()->moveTo()`
+|✅|**getConfiguration()**                          |`mailing()->getConfiguration()`
+|✅|**sendToProfiles()**                            |`mailing()->sendTo()`
+|✅|**updateTitle()**                               |`mailing()->setTitle()`
 |🔜|**addArticles()**                               |*Planned*
-|🔜|**copy()**                                      |*Planned*
 |🔜|**createDraft()**                               |*Planned*
-|🔜|**delete()**                                    |*Planned*
-|🔜|**getArticlesByMailingId()**                    |*Planned*
 |🔜|**getBounceProfiles()**                         |*Planned*
-|🔜|**getByFolderId()**                             |*Planned*
-|🔜|**getById()**                                   |*Planned*
 |🔜|**getClickProfiles()**                          |*Planned*
 |🔜|**getClicks()**                                 |*Planned*
-|🔜|**getConfiguration()**                          |*Planned*
-|🔜|**getDetailsById()**                            |*Planned*
 |🔜|**getImpressionProfiles()**                     |*Planned*
 |🔜|**getImpressions()**                            |*Planned*
 |🔜|**getRecipientsProfiles()**                     |*Planned*
@@ -399,14 +402,11 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |🔜|**getStatus()**                                 |*Planned*
 |🔜|**getSubjectsByMailingId()**                    |*Planned*
 |🔜|**getUnsubscriptionProfiles()**                 |*Planned*
-|🔜|**move()**                                      |*Planned*
 |🔜|**removeAllArticles()**                         |*Planned*
 |🔜|**removeArticles()**                            |*Planned*
-|🔜|**sendToProfiles()**                            |*Planned*
 |🔜|**sendToTargetGroup()**                         |*Planned*
 |🔜|**setConfiguration()**                          |*Planned*
 |🔜|**setSubjects()**                               |*Planned*
-|🔜|**updateTitle()**                               |*Planned*
 |❌|**~~getAllArticleImpressionProfiles()~~**       |*Not supported*
 |❌|**~~getAllLinkClickProfiles()~~**               |*Not supported*
 |❌|**~~getArticleImpressionProfiles()~~**          |*Not supported*
@@ -504,9 +504,10 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |✅|**updateById()**                   |`profile()->update()`
 |✅|**updateByKey()**                  |`pool()->updateProfiles()`
 |✅|**updateByPool()**                 |`pool()->updateProfiles()`
-|🔜|**create()**                       |`pool()->createProfile()`
+|✅|**massUpdate()**                   |`pool()->updateProfiles()`
+|✅|**create()**                       |`pool()->createProfile()`
+|✅|**getByTargetGroup()**             |`targetgroup()->getProfiles()`
 |🔜|**getBounces()**                   |*Planned*
-|🔜|**getByTargetGroup()**             |*Planned*
 |🔜|**getGrantedPermissions()**        |*Planned*
 |🔜|**getMailingStatus()**             |*Planned*
 |🔜|**getModifiedProfiles()**          |*Planned*
@@ -514,7 +515,6 @@ If a method is missing out for you, feel free to open up a [feature request issu
 |🔜|**getUnsubscriptions()**           |*Planned*
 |🔜|**grantPermission()**              |*Planned*
 |🔜|**isInTargetgroups()**             |*Planned*
-|🔜|**massUpdate()**                   |*Planned*
 |🔜|**revokePermission()**             |*Planned*
 |🔜|**revokeTracking()**               |*Planned*
 |🔜|**updateByTargetGroup()**          |*Planned*
@@ -538,13 +538,13 @@ If a method is missing out for you, feel free to open up a [feature request issu
 
 |Status|Method|Details|
 |:-:|-|-|
+|✅|**copy()**                            |`targetgroup()->copyTo()`
+|✅|**delete()**                          |`targetgroup()->delete()`
+|✅|**move()**                            |`targetgroup()->moveTo()`
+|✅|**getByFolderId()**                   |`folder()->getTargetGroups()`
+|✅|**getById()**                         |`targetgroup()->get()`
+|✅|**getDetailById()**                   |`targetgroup()->getDetails()`
 |🔜|**createByOption()**                  |*Planned*
-|🔜|**copy()**                            |*Planned*
-|🔜|**delete()**                          |*Planned*
-|🔜|**move()**                            |*Planned*
-|🔜|**getByFolderId()**                   |*Planned*
-|🔜|**getById()**                         |*Planned*
-|🔜|**getDetailById()**                   |*Planned*
 |❌|**~~getByExternalId()~~**             |*Not supported*
 |❌|**~~getByTypeId()~~**                 |*Not supported*
 |❌|**~~getDefaultFolderByMandatorId()~~**|*Not supported*
